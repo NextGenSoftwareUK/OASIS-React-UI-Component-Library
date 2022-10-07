@@ -1,6 +1,6 @@
-# React App for the OASIS
+# WEB4 OASIS API React Component Library
 
-This is the OASIS React UI Components Library that can be used to pick n mix into other React sites who wish to integrate into the OASIS API. It is also the main OASIS Portal site and example site of how to build a UI on the OASIS API.
+This is the WEB4 OASIS React UI Components Library that can be used to pick n mix into other React sites who wish to integrate into the WEB4 OASIS API. It is also the main OASIS Portal site and example site of how to build a UI on the WEB4 OASIS API.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
