@@ -7,9 +7,8 @@ import { toast } from "react-toastify";
 import Loader from "react-loader-spinner";
 import { Modal } from 'react-bootstrap';
 import { Formik } from "formik";
-import oasisApi from "oasis-api";
 import * as Yup from "yup";
-
+import axios from "axios";
 import "../../src/assets/scss/signup.scss";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -71,31 +70,32 @@ export default class Signup extends React.Component {
             let data = {...this.state.form}
 
             this.setState({ loading: true })
-            const auth = new oasisApi.Auth();
-            auth.signup(data)
-                .then(response => {
-                    console.log(response)
-                    console.log(response)
-                    
-                    if(response.error) {
-                        toast.error('Something went wrong!');
-                        return;
-                    }
+            
+            axios({
+                method: 'post',
+                url: 'https://api.oasisplatform.world/api/avatar/register',
+                data: data, // you are sending body instead
+                headers: {
+                    'Content-Type': 'application/json'
+                }, 
+            })
+            .then((response) => {
+                console.log(response)
+                this.setState({loading: false})
 
-                    if(response.data.result.isError) {
-                        toast.error(response.data.result.message)
-                        return;
-                    }
-                    
-                    this.props.hide()
-                    toast.success(response.data.result.message);
-                }).catch(error => {
-                    console.log(error)
-                    this.setState({ loading: false })
-                    toast.error(error.data.result.message);
-                }).finally(()=>{
-                    this.setState({loading: false})
-                });
+                if (response.data.result?.isError) {
+                    toast.error(response.data.result.message);
+                    return;
+                }
+    
+                toast.success(response.data.result.message);
+                this.props.hide();
+                this.props.showLogin();
+            })
+            .catch((err) => {
+                this.setState({loading: false})
+                return { error: true, data: err };
+            });
         } else {
             toast.error("Password did not match")
         }

@@ -77,7 +77,7 @@ class OffChainManagement extends React.Component {
                 <form className="custom-form" style={{padding: 0}}>
                   <div className="off-chain-container">
                     <div className="All-provider">
-                      <h3>All Provider</h3>
+                      <h3>All Providers</h3>
                       <ul className="list-item list-box">
                         {this.state.tagsList.map((tag) =>
                           tag.status ? null : (
@@ -111,7 +111,7 @@ class OffChainManagement extends React.Component {
                       </button> */}
                     </div>
                     <div className="off-chain-provider">
-                      <h3>Off Chain Provider</h3>
+                      <h3>Off Chain Providers</h3>
                       <ul className="list-item list-box">
                         {this.state.tagsList.map((tag) =>
                           tag.status ? (
