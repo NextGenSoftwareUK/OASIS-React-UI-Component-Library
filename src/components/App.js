@@ -290,14 +290,22 @@ class App extends React.Component {
         })
     };
 
-    toggleScreenPopup = (menuOption, menuName) => {
-        console.log('popup is clicked')
-        console.log(menuOption)
-        console.log(menuName)
+    toggleScreenPopup = (menu, subMenu) => {
+        let jwtToken = localStorage.getItem("jwtToken")
+        let refreshToken = localStorage.getItem("refreshToken")
+
         let sidebarMenuOption = [...this.state.sidebarMenuOption];
         sidebarMenuOption.map((item) => {
-            if (item[menuOption]) {
-                item[menuOption][menuName] = !item[menuOption][menuName];
+            if (item[menu.name]) {
+                if(subMenu.loginRequired) {
+                    if(jwtToken && refreshToken) {
+                        item[menu.name][subMenu.name] = !item[menu.name][subMenu.name];
+                    } else {
+                        toast.error("Please login first.")
+                    }
+                } else {
+                    item[menu.name][subMenu.name] = !item[menu.name][subMenu.name];
+                }
             }
         })
 
