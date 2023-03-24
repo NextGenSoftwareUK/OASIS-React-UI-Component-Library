@@ -13,14 +13,14 @@ import "../assets/scss/style.scss";
 
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import Avatar from "./popups/avatar";
 import DataScreen from "./popups/data-screen";
 import Seeds from "./popups/seeds";
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import VerifyToken from "./VerifyToken";
+import VerifyEmail from "./VerifyEmail";
 import Game from "./popups/game";
 import Eggs from "./popups/eggs";
 import Mission from "./popups/mission";
@@ -30,6 +30,7 @@ import Map from "./popups/map";
 import Provider from "./popups/provider";
 import Nft from "./popups/nft";
 import ForgotPassword from "./pages/forgotPassword";
+import ResetPassword from "./ResetPassword";
 
 class App extends React.Component {
   state = {
@@ -38,6 +39,7 @@ class App extends React.Component {
     showSignup: false,
     showForgetPassword: false,
     user: null,
+    loggedIn: false,
     sidebarMenuOption: [
       {
         data: {
@@ -178,16 +180,39 @@ class App extends React.Component {
   };
 
     componentDidMount() {
-        let user = localStorage.getItem('user');
-        if(user === 'undefined' || !user) {
-            this.setState({ user: localStorage.getItem("user") });
+        const jwtToken = localStorage.getItem("jwtToken"); 
+        const refreshToken = localStorage.getItem("refreshToken");
+
+        let loggedIn = (jwtToken && refreshToken) ? true : false;
+        this.setState({ loggedIn: loggedIn });
+
+        if(loggedIn) {
+            let user = {
+                email: localStorage.getItem("email"),
+                name: localStorage.getItem("name")
+            }
+
+            this.setState({
+                user: user
+            })
         }
     }
 
     setUserData = (data) => {
+        localStorage.setItem("name", data.fullName)
+        localStorage.setItem("jwtToken", data.jwtToken)
+        localStorage.setItem("refreshToken", data.refreshToken)
+        localStorage.setItem("email", data.email)
+        
+        let user = {
+            email: data.email,
+            name: data.fullName
+        }
+
         this.setState({
-            user: data,
-        });
+            user: user,
+            loggedIn: true
+        })
     };
 
     toggleSidebar = () => {
@@ -234,20 +259,35 @@ class App extends React.Component {
     };
 
     handleLogout = () => {
-        axios
-            .post("https://api.oasisplatform.world/api/avatar/revoke-token", {
-                token: this.state.user.jwtToken,
-            })
-            .then((res) => {
-                this.setState({ user: null });
-                localStorage.removeItem("user");
-                localStorage.removeItem("credentials");
-            })
-            .catch((err) => {
-                this.setState({ user: null });
-                localStorage.removeItem("user");
-                localStorage.removeItem("credentials");
-            });
+        console.log('going to call logout')
+        const token = localStorage.getItem("jwtToken");
+        const refreshToken = localStorage.getItem("refreshToken");
+
+        console.log(token)
+        console.log(refreshToken)
+        // axios
+        //     .post("https://api.oasisplatform.world/api/avatar/revoke-token", {token: refreshToken}, {
+        //         headers: {
+        //             Authorization: `Bearer ${token}`,
+        //         }
+        //     })
+        //     .then((res) => {
+        //         this.setState({ user: null });
+        //         localStorage.removeItem("user");
+        //         localStorage.removeItem("credentials");
+
+        //         localStorage.clear();
+        //     })
+        //     .catch((err) => {
+        //         this.setState({ user: null });
+        //         localStorage.removeItem("user");
+        //         localStorage.removeItem("credentials");
+        //         localStorage.clear();
+        //     });
+        localStorage.clear();
+        this.setState({
+            loggedIn: false
+        })
     };
 
     toggleScreenPopup = (menuOption, menuName) => {
@@ -270,21 +310,11 @@ class App extends React.Component {
         return (
             <Router>
                 <Switch>
-                    <Route exact path='/avatar/verify-email' component={VerifyToken} />
-                    <Route exact path='/avatar/forgot-password' component={ForgotPassword} />
+                    <Route path='/avatar/verify-email' component={VerifyEmail} />
+                    <Route path='/avatar/reset-password' component={ResetPassword} />
                 </Switch>
 
-                <ToastContainer
-                    position="top-center"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover 
-                />
+                <ToastContainer position="top-center" />
 
                 <div className="main-container">
                     <header>
@@ -294,6 +324,7 @@ class App extends React.Component {
                             showLogin={this.showLogin}
                             showSignup={this.showSignup}
                             handleLogout={this.handleLogout}
+                            loggedIn={this.state.loggedIn}
                             user={this.state.user}
                         />
                         
@@ -317,6 +348,7 @@ class App extends React.Component {
                         show={this.state.showSignup}
                         hide={this.hideSignup}
                         change={this.showLogin}
+                        showLogin={this.showLogin}
                     />
 
                     <DataScreen

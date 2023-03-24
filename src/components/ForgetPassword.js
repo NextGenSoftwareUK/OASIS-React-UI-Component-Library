@@ -41,6 +41,7 @@ export default class ForgetPassword extends React.Component {
             .then(response => {
                 this.setState({ loading: false })
                 console.log(response)
+                
                 if (response?.data?.result.isError) {
                     toast.error(response.data.result.message);
                     return
