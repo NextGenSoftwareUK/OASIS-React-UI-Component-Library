@@ -14,7 +14,7 @@ class Seeds extends React.Component {
                     size="sm"
                     show={show}
                     dialogClassName="modal-90w"
-                    onHide={() => hide('provider', 'seeds')}
+                    onHide={() => hide('providers', 'seeds')}
                 >
                     <Modal.Body className="text-center coming-soon">
                         <img
@@ -23,7 +23,7 @@ class Seeds extends React.Component {
                         />
                         <h2>UI Coming Soon</h2>
                         <p>You can use this functionality directly by accessing the OASIS API from the Developer menu.</p>
-                        <button onClick={() => hide('provider', 'seeds')}>OK</button>
+                        <button onClick={() => hide('providers', 'seeds')}>OK</button>
                     </Modal.Body>
                 </Modal>
             </>
