@@ -18,6 +18,7 @@ export default class ResetPassword extends React.Component {
             show: false,
             form: {
                 token: '',
+                oldPassword: '',
                 password: '',
                 confirmPassword: ''
             },
@@ -29,9 +30,12 @@ export default class ResetPassword extends React.Component {
     validationSchema = Yup.object().shape({
         token: Yup.string()
             .required("Token is required"),
+        oldPassword: Yup.string()
+            .required("Old Password is required.")
+            .min(8, "Password is too short - should be 8 characters minimum."),
         password: Yup.string()
             .required("Password is required.")
-            .min(8, "Password is too short - should be 8 characters minimum."),
+            .min(8, "Password is too short - should be 8 characters minimum."),    
         confirmPassword: Yup.string()
             .required("Confirm Password is required.")
             .min(8, "Password is too short - should be 8 characters minimum.")    
@@ -50,38 +54,43 @@ export default class ResetPassword extends React.Component {
     }
 
     handleResetPassword = () => {
-        let data = {
-            token: this.state.form.token, // use token from form state
-            password: this.state.form.password,
-            confirmPassword: this.state.form.confirmPassword
+        if (this.state.form.password === this.state.form.confirmPassword) {
+            let data = {
+                token: this.state.form.token, // use token from form state
+                oldPassword: this.state.oldPassword,
+                password: this.state.form.password,
+                confirmPassword: this.state.form.confirmPassword
+            }
+            this.setState({ loading: true })
+    
+            console.log(data)
+    
+            axios.post('https://api.oasisplatform.world/api/Avatar/reset-password', data)
+                .then(response => {
+                    if(response.data.result?.isError) {
+                        toast.error(response.data.result.message);
+                        return;
+                    }
+                    
+                    // const { history } = this.props;
+                    // history.push('/');
+    
+                    toast.success(response?.data?.result.message);
+    
+                    this.setState({
+                        loading: false,
+                        message: response.data.message,
+                    });
+                })
+                .catch(error => {
+                    this.setState({
+                        loading: false,
+                        error: error.response.data.message,
+                    });
+                });
+        } else {
+            toast.error("Password and Confirm password should be same.")
         }
-        this.setState({ loading: true })
-
-        console.log(data)
-
-        axios.post('https://api.oasisplatform.world/api/Avatar/reset-password', data)
-            .then(response => {
-                if(response.data.result?.isError) {
-                    toast.error(response.data.result.message);
-                    return;
-                }
-                
-                // const { history } = this.props;
-                // history.push('/');
-
-                toast.success(response?.data?.result.message);
-
-                this.setState({
-                    loading: false,
-                    message: response.data.message,
-                });
-            })
-            .catch(error => {
-                this.setState({
-                    loading: false,
-                    error: error.response.data.message,
-                });
-            });
     }
     
     
@@ -90,6 +99,7 @@ export default class ResetPassword extends React.Component {
         const token = searchParams.get('token');
         const initialValues = {
             token: token || '',
+            oldPassword: '',
             password: '',
             confirmPassword: ''
         };
@@ -127,17 +137,17 @@ export default class ResetPassword extends React.Component {
                                     </div>
 
                                     <div className="form-inputs">
-                                        <div className={this.handleFormFieldClass(errors.token, touched.token)}>
-                                            <label>Token</label>
+                                        <div className={this.handleFormFieldClass(errors.oldPassword, touched.oldPassword)}>
+                                            <label>Old Password</label>
                                             <input
                                                 type="text"
-                                                name="token"
-                                                value={values.token}
+                                                name="oldPassword"
+                                                value={values.oldPassword}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 disabled={this.state.loading}
-                                                placeholder="token" />
-                                            <span className="text-danger">{errors.token && touched.token && errors.token}</span>
+                                                placeholder="oldPassword" />
+                                            <span className="text-danger">{errors.oldPassword && touched.oldPassword && errors.oldPassword}</span>
                                         </div>
 
                                         <div className={this.handleFormFieldClass(errors.password, touched.password)}>

@@ -45,7 +45,7 @@ const SidebarData = [
                 id: 3,
                 name: "Search Avatars",
                 popupName: "searchAvatar",
-                loginRequired: true
+                loginRequired: false
             },
             {
                 id: 4,
@@ -63,25 +63,25 @@ const SidebarData = [
                 id: 1,
                 name: "View Curent Karma Weightings",
                 popupName: "viewKarma",
-                loginRequired: true
+                loginRequired: false
             },
             {
                 id: 2,
                 name: "Vote For Karma Weightings",
                 popupName: 'voteKarma',
-                loginRequired: true
+                loginRequired: false
             },
             {
                 id: 3,
                 name: "View Avatar Karma",
                 popupName: 'viewAvatarKarma',
-                loginRequired: true
+                loginRequired: false
             },
             {
                 id: 4,
                 name: "View/Search Karma Akashic Records",
                 popupName: 'searchKarma',
-                loginRequired: true
+                loginRequired: false
             },
         ],
     },
@@ -317,7 +317,9 @@ const SidebarData = [
                 id: 1,
                 name: "View OASIS NFTs",
                 popupName: 'viewOasisNft',
-                disabled: false
+                // disabled: false
+                path: 'https://opensea.io/collection/theoasisandourworld',
+                externalLink: true
             },
             // {
             //     id: 2,
