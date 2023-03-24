@@ -14,7 +14,7 @@ class ThreeFold extends React.Component {
                     size="sm"
                     show={show}
                     dialogClassName="modal-90w"
-                    onHide={() => hide('provider', 'threeFold')}
+                    onHide={() => hide('providers', 'threeFold')}
                 >
                     <Modal.Body className="text-center coming-soon">
                         <img
@@ -23,7 +23,7 @@ class ThreeFold extends React.Component {
                         />
                         <h2>Coming Soon</h2>
                         <p>This module is coming soon...</p>
-                        <button onClick={() => hide('provider', 'threeFold')}>OK</button>
+                        <button onClick={() => hide('providers', 'threeFold')}>OK</button>
                     </Modal.Body>
                 </Modal>
             </>
