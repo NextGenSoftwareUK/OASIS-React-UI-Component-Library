@@ -22,7 +22,7 @@ class DownloadOurWorld extends React.Component {
                             alt="icon"
                         />
                         <h2>STAR ODK Coming Soon.</h2>
-                        <p>This is functionaliy that is built in the STAR ODK and will soon be released. You can then download STAR ODK from the Developer menu.</p>
+                        <p>The alpha release of this will be coming soon… please check back soon… thank you.</p>
                         <button onClick={() => hide('oapp', 'downloadOurWorld')}>OK</button>
                     </Modal.Body>
                 </Modal>

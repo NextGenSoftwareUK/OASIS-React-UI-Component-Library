@@ -1,20 +1,49 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/images/dummy-logo.svg";
 import loginIcon from "../../assets/images/loggedin.png";
 
 class Navbar extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showProfileDropdown: false
+        }
+    }
+
+    handleUserProfileDropdownClicked = () => {
+        this.setState({
+            showProfileDropdown: !this.state.showProfileDropdown
+        })
+    }
+
+    handleLogoutClick = () => {
+        this.setState({
+            showProfileDropdown: false
+        })
+        this.props.handleLogout();
+    }
+
     handleLogoClicked = (showLogin) => {
-        let user = localStorage.getItem('user');
-        if(user === 'undefined' || !user) {
+        // const { history } = this.props;
+        // console.log(this.props)
+        // history.push('/');
+
+        const jwtToken = localStorage.getItem("jwtToken");
+        const refreshToken = localStorage.getItem("refreshToken");
+
+        if(jwtToken || refreshToken) {
+        } else {
             showLogin();
         }
     }
 
     render() {
-        const { user, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar } = this.props;
-
+        const { user, loggedIn, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar } = this.props;
+        // console.log(user)
         return (
             <nav className="nav">
                 <div className="nav-left">
@@ -32,42 +61,43 @@ class Navbar extends React.Component {
 
                 <div className="nav-right">
                     {
-                        user ? null :
-                        <ul>
-                            <li onClick={showLogin}><a href="#">Log in</a> </li>
-                            <li onClick={showSignup}><a href="#">Sign up</a></li>
-                        </ul>
-                    }
+                        loggedIn ?
 
-                    <ul>
-                        <li className="have-avatar">
-                            <a href="#">
-                                {
-                                    user ? <img src={loginIcon} alt="icon" /> :
-                                    <svg viewBox="0 0 26.5 26.5">
-                                        <path
-                                            d="M24.75 13.25a11.5 11.5 0 01-11.5 11.5 11.5 11.5 0 01-11.5-11.5 11.5 11.5 0 0111.5-11.5 11.5 11.5 0 0111.5 11.5zm-3.501 8.243c-.5-3.246-4-6.246-7.995-6.238C9.25 15.247 5.75 18.247 5.25 21.5m13-11.248a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5z"
-                                            fill="none" 
-                                            stroke="currentColor" 
-                                            strokeWidth="1.5" 
-                                        />
-                                    </svg>
-                                }    
-                            </a>
+                        <div className="user-profile-container">
+                            <p className="username profile-circle" onClick={() => this.handleUserProfileDropdownClicked()}>MA</p>
 
                             {
-                                user ?
-                                
-                                <ul className="inner-menu">
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">Edit Account</a></li>
-                                    <li><a href="#" onClick={handleLogout}>Logout</a></li>
+                                this.state.showProfileDropdown ?
+                                <ul className="user-profile-dropdown">
+                                    <li>
+                                        <div className="user-info">
+                                            <p className="username profile-circle">MA</p>
+
+                                            <p>
+                                                <span className="name">{user.name}</span>
+                                                <span className="email">{user.email}</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>View/Edit Avatar</li>
+                                    <li>Messages</li>
+                                    <li>Contacts</li>
+                                    <li onClick={() => this.handleLogoutClick()}>Beam Out</li>
                                 </ul>
 
                                 : null
                             }
-                        </li>
-                    </ul>
+                        </div>
+
+                        : 
+
+                        <ul>
+                            {/* <li><a><Link to='/avatar/reset-password'>Reset</Link></a> </li> */}
+                            
+                            <li onClick={showLogin}><a>Beam in</a> </li>
+                            <li onClick={showSignup}><a>Sign up</a></li>
+                        </ul>
+                    }
                 </div>
             </nav>
         );
