@@ -22,83 +22,86 @@ import ViewProviderStats from './components/ViewProviderStats';
 class Provider extends React.Component {
 
     render() {
-        const props=this.props;
+        const props = this.props;
+        const { viewProviders } = this.props.providers;
+        console.log(viewProviders)
         return(
             <>
-                <ActivityPub
-                    show={props.provider.activityPub}
-                    hide={props.toggleScreenPopup}
-                />
-                <CompareProviderSpeeds 
-                    show={props.provider.compareProviderSpeeds}
-                    hide={props.toggleScreenPopup}
-                />
-                <Eosio
-                    show={props.provider.eosio}
-                    hide={props.toggleScreenPopup}
-                />
-                <Ethereum
-                    show={props.provider.ethereum}
-                    hide={props.toggleScreenPopup}
-                />
-                <Holochain
-                    show={props.provider.holochain}
-                    hide={props.toggleScreenPopup}
-                />
-                <Ipfs
-                    show={props.provider.ipfs}
-                    hide={props.toggleScreenPopup}
-                />
-                <ManageAutoFailOver
-                    show={props.provider.manageAutoFailOver}
-                    hide={props.toggleScreenPopup}
-                />
-                <ManageAutoReplicaton
-                    show={props.provider.manageAutoReplicaton}
-                    hide={props.toggleScreenPopup}
-                />
-                <ManageLoadBalancing
-                    show={props.provider.manageLoadBalancing}
+                
+                <ViewProviders
+                    show={viewProviders}
                     hide={props.toggleScreenPopup}
                 />
                 <ManageProviders
-                    show={props.provider.manageProviders}
+                    show={props.providers.manageProviders}
                     hide={props.toggleScreenPopup}
                 />
-                <MongoDb
-                    show={props.provider.mongoDb}
+                <ManageAutoReplicaton
+                    show={props.providers.manageAutoReplicaton}
                     hide={props.toggleScreenPopup}
                 />
-                <Neo4j
-                    show={props.provider.neo4j}
+                <ManageAutoFailOver
+                    show={props.providers.manageAutoFailOver}
                     hide={props.toggleScreenPopup}
                 />
-                <SearchProviders
-                    show={props.provider.searchProviders}
-                    hide={props.toggleScreenPopup}
-                />
-                <Seeds
-                    show={props.provider.seeds}
-                    hide={props.toggleScreenPopup}
-                />
-                <Solid
-                    show={props.provider.solid}
-                    hide={props.toggleScreenPopup}
-                />
-                <SqlLite
-                    show={props.provider.sqlLite}
-                    hide={props.toggleScreenPopup}
-                />
-                <ThreeFold
-                    show={props.provider.threeFold}
-                    hide={props.toggleScreenPopup}
-                />
-                <ViewProviders
-                    show={props.provider.viewProviders}
+                <ManageLoadBalancing
+                    show={props.providers.manageLoadBalancing}
                     hide={props.toggleScreenPopup}
                 />
                 <ViewProviderStats
-                    show={props.provider.viewProviderStats}
+                    show={props.providers.viewProviderStats}
+                    hide={props.toggleScreenPopup}
+                />
+                <CompareProviderSpeeds 
+                    show={props.providers.compareProviderSpeeds}
+                    hide={props.toggleScreenPopup}
+                />
+                <SearchProviders
+                    show={props.providers.searchProviders}
+                    hide={props.toggleScreenPopup}
+                />
+                <Holochain
+                    show={props.providers.holochain}
+                    hide={props.toggleScreenPopup}
+                />
+                <Seeds
+                    show={props.providers.seeds}
+                    hide={props.toggleScreenPopup}
+                />
+                <Eosio
+                    show={props.providers.eosio}
+                    hide={props.toggleScreenPopup}
+                />
+                <Ethereum
+                    show={props.providers.ethereum}
+                    hide={props.toggleScreenPopup}
+                />
+                <Ipfs
+                    show={props.providers.ipfs}
+                    hide={props.toggleScreenPopup}
+                />
+                <ThreeFold
+                    show={props.providers.threeFold}
+                    hide={props.toggleScreenPopup}
+                />
+                <Solid
+                    show={props.providers.solid}
+                    hide={props.toggleScreenPopup}
+                />
+                <ActivityPub
+                    show={props.providers.activityPub}
+                    hide={props.toggleScreenPopup}
+                />
+                <MongoDb
+                    show={props.providers.mongoDb}
+                    hide={props.toggleScreenPopup}
+                />
+                <SqlLite
+                    show={props.providers.sqlLite}
+                    hide={props.toggleScreenPopup}
+                />
+                <Neo4j
+                    show={props.providers.neo4j}
                     hide={props.toggleScreenPopup}
                 />
                 

@@ -14,7 +14,7 @@ class ViewProviderStats extends React.Component {
                     size="sm"
                     show={show}
                     dialogClassName="modal-90w"
-                    onHide={() => hide('provider', 'viewProviderStats')}
+                    onHide={() => hide('providers', 'viewProviderStats')}
                 >
                     <Modal.Body className="text-center coming-soon">
                         <img
@@ -23,7 +23,7 @@ class ViewProviderStats extends React.Component {
                         />
                         <h2>Coming Soon</h2>
                         <p>This module is coming soon...</p>
-                        <button onClick={() => hide('provider', 'viewProviderStats')}>OK</button>
+                        <button onClick={() => hide('providers', 'viewProviderStats')}>OK</button>
                     </Modal.Body>
                 </Modal>
             </>

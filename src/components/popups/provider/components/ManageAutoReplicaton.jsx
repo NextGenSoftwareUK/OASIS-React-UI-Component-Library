@@ -14,7 +14,7 @@ class ManageAutoReplicaton extends React.Component {
                     size="sm"
                     show={show}
                     dialogClassName="modal-90w"
-                    onHide={() => hide('provider', 'manageAutoReplicaton')}
+                    onHide={() => hide('providers', 'manageAutoReplicaton')}
                 >
                     <Modal.Body className="text-center coming-soon">
                         <img
@@ -23,7 +23,7 @@ class ManageAutoReplicaton extends React.Component {
                         />
                         <h2>UI Coming Soon</h2>
                         <p>You can use this functionality directly by accessing the OASIS API from the Developer menu.</p>
-                        <button onClick={() => hide('provider', 'manageAutoReplicaton')}>OK</button>
+                        <button onClick={() => hide('providers', 'manageAutoReplicaton')}>OK</button>
                     </Modal.Body>
                 </Modal>
             </>

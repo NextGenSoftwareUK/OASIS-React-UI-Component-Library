@@ -52,8 +52,8 @@ class SidebarMenuItem extends React.Component {
                                             target={subItem.externalLink ? '_blank': ''}
                                             href={subItem.path}
                                             onClick={
-                                                // () => this.props.toggleScreenPopup(item.name, subItem.popupName)
-                                                () => this.props.toggleScreenPopup(item, subItem)
+                                                () => this.props.toggleScreenPopup(item.name, subItem.popupName)
+                                                // () => this.props.toggleScreenPopup(item, subItem)
                                             }
                                         >{subItem.name}</a>
                                 </li>
