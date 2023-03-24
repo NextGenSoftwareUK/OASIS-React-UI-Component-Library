@@ -22,20 +22,20 @@ class PayWithSeeds extends React.Component {
     }
 
     loadAllAvatarData = () => {
-        axios.get('https://api.oasisplatform.world/api/avatar/get-all-avatars')
-        .then(response => {
-            console.log(response)
-            if(response.data.isError) {
-                toast.error(response.data.message)
-            } else {
-                toast.success(response.data.result.message)
-            }
-            // this.props.history.goBack()
-            // console.log(this.props) 
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        // axios.get('https://api.oasisplatform.world/api/avatar/get-all-avatars')
+        // .then(response => {
+        //     console.log(response)
+        //     if(response.data.isError) {
+        //         toast.error(response.data.message)
+        //     } else {
+        //         toast.success(response.data.result.message)
+        //     }
+        //     // this.props.history.goBack()
+        //     // console.log(this.props) 
+        // })
+        // .catch(error => {
+        //     console.log(error)
+        // })
     }
 
     handleChange = (e) => {

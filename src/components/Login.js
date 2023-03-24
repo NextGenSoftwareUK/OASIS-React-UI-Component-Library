@@ -1,4 +1,5 @@
 import React from "react";
+
 import ShowIcon from "../assets/images/visible-icon.svg";
 import HideIcon from "../assets/images/hidden-icon.svg";
 
@@ -7,8 +8,9 @@ import ForgetPassword from "./ForgetPassword";
 import { Modal } from "react-bootstrap";
 import Loader from "react-loader-spinner";
 import { Formik } from "formik";
-import oasisApi from "oasis-api";
 import * as Yup from "yup";
+import axios from "axios";
+import { toast } from 'react-toastify';
 
 export default class Login extends React.Component {
 
@@ -22,8 +24,7 @@ export default class Login extends React.Component {
             },
             showPassword: false,
             showForgetPasswordPopup: false,
-            loading: false,
-            user: null
+            loading: false
         }
     }
 
@@ -41,33 +42,52 @@ export default class Login extends React.Component {
 
     handleLogin = () => {
         this.setState({ loading: true })
-        let data = {...this.state.form}
+        
+        let data = {
+            "providerType": "provider",
+            "setGlobally": true,
+            "autoFailOverMode": "default",
+            "autoReplicationMode": "default",
+            "autoLoadBalanceMode": "default",
+            "autoFailOverProviders": "default",
+            "autoReplicationProviders": "default",
+            "autoLoadBalanceProviders": "default",
+            "waitForAutoReplicationResult": true,
+            "showDetailedSettings": true,
+            ...this.state.form
+        }
 
-        // const headers = { 'Content-Type': 'application/json' }
+        axios({
+            method: 'post',
+            url: 'https://api.oasisplatform.world/api/avatar/authenticate/',
+            data: data, // you are sending body instead
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+        })
+        .then((response) => {
+            console.log(response)
+            this.setState({loading: false})
+            if (response.data.result?.isError) { 
+                toast.error(response.data.result.message);
+                return; 
+            }
 
-        const auth = new oasisApi.Auth();
-        auth.login(data)
-            .then(response => {
-                console.log(response)
-                this.setState({loading: false})
-                // if (response.data.result?.isError) {
-                //     toast.error(response.data.result.message);
-                //     return;
-                // }
-             
-                // toast.success(response.data.result.message);
-                // this.setState({user: response.data.result.result})
+            const data = response.data.result.result;
+            localStorage.clear();
 
-                // this.props.setUserStateData(response.data.result.result);
+            toast.success(response.data.result.message);
+            this.setState({user: response.data.result})
 
-                // this.props.hide();
-            })
-            .catch((err) => {
-                console.log(err)
-                console.log("There was an error!");
-                // this.setState({ loading: false });
-                // toast.error(err.data.result.message);
-            })
+            this.props.setUserStateData(data);
+            this.props.hide();
+        })
+        .catch((err) => {
+            console.log(err)
+            toast.error('err');
+            this.setState({loading: false})
+            return { error: true, data: err };
+        });
     }
 
     showForgetPasswordPopup = (hideLogin) => {
@@ -89,6 +109,7 @@ export default class Login extends React.Component {
 
         return (
             <>
+
                 <Formik
                     initialValues={this.initialValues}
                     validationSchema={this.validationSchema}
