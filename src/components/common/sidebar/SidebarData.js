@@ -184,7 +184,7 @@ const SidebarData = [
     },
     {
         id: 6,
-        name: "provider",
+        name: "providers",
         subMenu: [
             {
                 id: 1,
@@ -301,6 +301,12 @@ const SidebarData = [
                 popupName: "neo4j",
                 disabled: false
             },
+            {
+                id: 20,
+                name: "Solana",
+                popupName: 'solana',
+                disabled: false
+            },
         ],
     },
     {
@@ -313,42 +319,36 @@ const SidebarData = [
                 popupName: 'viewOasisNft',
                 disabled: false
             },
-            {
-                id: 2,
-                name: "Manage OASIS NFTs",
-                popupName: 'manageOasisNft',
-                disabled: false
-            },
-            {
-                id: 3,
-                name: "Search OASIS NFTs",
-                popupName: 'searchOasisNft',
-                disabled: false
-            },
-            {
-                id: 4,
-                name: "Purchase OASIS NFT",
-                popupName: 'purchaseOasisNft',
-                disabled: false
-            },
-            {
-                id: 5,
-                name: "Purchase OASIS Virtual Land NFT",
-                popupName: 'PurchaseOasisVirtualLandNft',
-                disabled: false
-            },
-            {
-                id: 6,
-                name: "Solana",
-                popupName: 'solana',
-                disabled: false
-            },
-            {
-                id: 7,
-                name: "Contact Popup",
-                popupName: 'contactPopup',
-                disabled: false
-            },
+            // {
+            //     id: 2,
+            //     name: "Manage OASIS NFTs",
+            //     popupName: 'manageOasisNft',
+            //     disabled: false
+            // },
+            // {
+            //     id: 3,
+            //     name: "Search OASIS NFTs",
+            //     popupName: 'searchOasisNft',
+            //     disabled: false
+            // },
+            // {
+            //     id: 4,
+            //     name: "Purchase OASIS NFT",
+            //     popupName: 'purchaseOasisNft',
+            //     disabled: false
+            // },
+            // {
+            //     id: 5,
+            //     name: "Purchase OASIS Virtual Land NFT",
+            //     popupName: 'PurchaseOasisVirtualLandNft',
+            //     disabled: false
+            // },
+            // {
+            //     id: 6,
+            //     name: "Contact Popup",
+            //     popupName: 'contactPopup',
+            //     disabled: false
+            // },
         ],
     },
     {

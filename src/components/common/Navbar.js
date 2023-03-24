@@ -79,9 +79,10 @@ class Navbar extends React.Component {
                                             </p>
                                         </div>
                                     </li>
-                                    <li>My Account</li>
-                                    <li>My Profile</li>
-                                    <li onClick={() => this.handleLogoutClick()}>Logout</li>
+                                    <li>View/Edit Avatar</li>
+                                    <li>Messages</li>
+                                    <li>Contacts</li>
+                                    <li onClick={() => this.handleLogoutClick()}>Beam Out</li>
                                 </ul>
 
                                 : null
@@ -93,7 +94,7 @@ class Navbar extends React.Component {
                         <ul>
                             {/* <li><a><Link to='/avatar/reset-password'>Reset</Link></a> </li> */}
                             
-                            <li onClick={showLogin}><a>Log in</a> </li>
+                            <li onClick={showLogin}><a>Beam in</a> </li>
                             <li onClick={showSignup}><a>Sign up</a></li>
                         </ul>
                     }
