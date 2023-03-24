@@ -14,7 +14,7 @@ class CompareProviderSpeeds extends React.Component {
                     size="sm"
                     show={show}
                     dialogClassName="modal-90w"
-                    onHide={() => hide('provider', 'compareProviderSpeeds')}
+                    onHide={() => hide('providers', 'compareProviderSpeeds')}
                 >
                     <Modal.Body className="text-center coming-soon">
                         <img
@@ -23,7 +23,7 @@ class CompareProviderSpeeds extends React.Component {
                         />
                         <h2>Coming Soon</h2>
                         <p>This module is coming soon...</p>
-                        <button onClick={() => hide('provider', 'compareProviderSpeeds')}>OK</button>
+                        <button onClick={() => hide('providers', 'compareProviderSpeeds')}>OK</button>
                     </Modal.Body>
                 </Modal>
             </>

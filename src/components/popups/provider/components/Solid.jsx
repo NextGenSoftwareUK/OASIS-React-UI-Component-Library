@@ -14,7 +14,7 @@ class Solid extends React.Component {
                     size="sm"
                     show={show}
                     dialogClassName="modal-90w"
-                    onHide={() => hide('provider', 'solid')}
+                    onHide={() => hide('providers', 'solid')}
                 >
                     <Modal.Body className="text-center coming-soon">
                         <img
@@ -23,7 +23,7 @@ class Solid extends React.Component {
                         />
                         <h2>Coming Soon.</h2>
                         <p>This module is coming soon...</p>
-                        <button onClick={() => hide('provider', 'solid')}>OK</button>
+                        <button onClick={() => hide('providers', 'solid')}>OK</button>
                     </Modal.Body>
                 </Modal>
             </>

@@ -14,7 +14,7 @@ class Eosio extends React.Component {
                     size="sm"
                     show={show}
                     dialogClassName="modal-90w"
-                    onHide={() => hide('provider', 'Eosio')}
+                    onHide={() => hide('providers', 'Eosio')}
                 >
                     <Modal.Body className="text-center coming-soon">
                         <img
@@ -23,7 +23,7 @@ class Eosio extends React.Component {
                         />
                         <h2>UI Coming Soon</h2>
                         <p>You can use this functionality directly by accessing the OASIS API from the Developer menu.</p>
-                        <button onClick={() => hide('provider', 'eosio')}>OK</button>
+                        <button onClick={() => hide('providers', 'eosio')}>OK</button>
                     </Modal.Body>
                 </Modal>
             </>

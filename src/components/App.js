@@ -31,6 +31,7 @@ import Provider from "./popups/provider";
 import Nft from "./popups/nft";
 import ForgotPassword from "./pages/forgotPassword";
 import ResetPassword from "./ResetPassword";
+import SidebarData from "./common/sidebar/SidebarData";
 
 class App extends React.Component {
   state = {
@@ -142,7 +143,7 @@ class App extends React.Component {
         }
       },
       {
-        provider: {
+        providers: {
             viewProviders: false,
             manageProviders: false,
             manageAutoReplicaton: false,
@@ -161,7 +162,8 @@ class App extends React.Component {
             activityPub: false,
             mongoDb: false,
             sqlLite: false,
-            neo4j: false
+            neo4j: false,
+            solana: false
         }
       },
       {
@@ -290,22 +292,31 @@ class App extends React.Component {
         })
     };
 
-    toggleScreenPopup = (menu, subMenu) => {
-        let jwtToken = localStorage.getItem("jwtToken")
-        let refreshToken = localStorage.getItem("refreshToken")
+    toggleScreenPopup = (menuName, popupName) => {
+        let jwtToken = localStorage.getItem("jwtToken");
+        let refreshToken = localStorage.getItem("refreshToken");
 
         let sidebarMenuOption = [...this.state.sidebarMenuOption];
-        sidebarMenuOption.map((item) => {
-            if (item[menu.name]) {
-                if(subMenu.loginRequired) {
-                    if(jwtToken && refreshToken) {
-                        item[menu.name][subMenu.name] = !item[menu.name][subMenu.name];
-                    } else {
-                        toast.error("Please login first.")
+
+        SidebarData.map((item) => {
+            if(item.name === menuName) {
+                item.subMenu.map((subItem) => {
+                    if(subItem.popupName === popupName) {
+                        sidebarMenuOption.map((option) => {
+                            if(option[menuName]) {
+                                if(subItem.loginRequired) {
+                                    if(jwtToken && refreshToken) {
+                                        option[menuName][popupName] = !option[menuName][popupName];
+                                    } else {
+                                        toast.error("Please login first.")
+                                    }
+                                } else {
+                                    option[menuName][popupName] = !option[menuName][popupName];
+                                }
+                            }
+                        })
                     }
-                } else {
-                    item[menu.name][subMenu.name] = !item[menu.name][subMenu.name];
-                }
+                })
             }
         })
 
@@ -420,7 +431,7 @@ class App extends React.Component {
                     />
 
                     <Provider 
-                        provider={this.state.sidebarMenuOption[11].provider}
+                        providers={this.state.sidebarMenuOption[11].providers}
                         toggleScreenPopup={this.toggleScreenPopup}
                     />
 

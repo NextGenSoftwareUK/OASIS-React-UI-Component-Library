@@ -14,7 +14,7 @@ class Holochain extends React.Component {
                     size="sm"
                     show={show}
                     dialogClassName="modal-90w"
-                    onHide={() => hide('provider', 'holochain')}
+                    onHide={() => hide('providers', 'holochain')}
                 >
                     <Modal.Body className="text-center coming-soon">
                         <img
@@ -23,7 +23,7 @@ class Holochain extends React.Component {
                         />
                         <h2>Coming Soon</h2>
                         <p>This module is coming soon...</p>
-                        <button onClick={() => hide('provider', 'holochain')}>OK</button>
+                        <button onClick={() => hide('providers', 'holochain')}>OK</button>
                     </Modal.Body>
                 </Modal>
             </>
