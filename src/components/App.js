@@ -80,7 +80,7 @@ class App extends React.Component {
       },
       {
         karma: {
-            viewKarma: false,
+            viewKarmaWeightings: false,
             voteKarma: false,
             viewAvatarKarma: false,
             searchKarma: false
