@@ -62,7 +62,7 @@ const SidebarData = [
             {
                 id: 1,
                 name: "View Curent Karma Weightings",
-                popupName: "viewKarma",
+                popupName: "viewKarmaWeightings",
                 loginRequired: false
             },
             {
@@ -154,7 +154,7 @@ const SidebarData = [
                 id: 4,
                 name: "Send Invite To Join SEEDS",
                 popupName: "sendInvite",
-                disabled: false
+                loginRequired: true
             },
             {
                 id: 5,

@@ -13,6 +13,17 @@ class PayWithSeeds extends React.Component {
         avatar: '',
         seedUser: '',
         amount: '',
+        note: '',
+
+        avatar: {
+            enabled: true,
+            name: ''
+        },
+        seed: {
+            enabled: false,
+            username: '',
+            amount: 0
+        },
         note: ''
       }
     }
@@ -41,13 +52,33 @@ class PayWithSeeds extends React.Component {
     handleChange = (e) => {
         console.log(e.target.value)
 
-        if(e.target.value === "avatar_section" || e.target.value === "username_section") {
+        if(e.target.value === "avatar_section") {
             this.setState({
-                group: e.target.value
+                avatar: {
+                    enabled: true
+                },
+                seed: {
+                    enabled: false
+                }
             })
-        } else {
-            this.setState({[e.target.name]: e.target.value})
+        } else if(e.target.value === "seed_section") {
+            this.setState({
+                avatar: {
+                    enabled: false
+                },
+                seed: {
+                    enabled: true
+                }
+            })
         }
+
+        // if(e.target.value === "avatar_section" || e.target.value === "seed_section") {
+        //     this.setState({
+        //         group: e.target.value
+        //     })
+        // } else {
+        //     this.setState({[e.target.name]: e.target.value})
+        // }
     }
 
     handleSubmit=(e) => {
@@ -83,7 +114,7 @@ class PayWithSeeds extends React.Component {
                                                 <input 
                                                     type="radio" 
                                                     value="avatar_section" 
-                                                    checked={this.state.group === "avatar_section"} 
+                                                    checked={this.state.avatar.enabled} 
                                                     onChange={this.handleChange} 
                                                 />
                                                 Avatar
@@ -93,9 +124,9 @@ class PayWithSeeds extends React.Component {
                                                 type="text" 
                                                 placeholder="Avatar" 
                                                 name="avatar" 
-                                                value={this.state.avatar} 
+                                                value={this.state.avatar.name} 
                                                 onChange={this.handleChange}
-                                                disabled={this.state.group === "username_section"} 
+                                                disabled={!this.state.avatar.enabled} 
                                             />
                                         </p>
 
@@ -105,8 +136,8 @@ class PayWithSeeds extends React.Component {
                                             <label className="single-radio-btn">
                                                 <input 
                                                     type="radio" 
-                                                    value="username_section"
-                                                    checked={this.state.group === "username_section"} 
+                                                    value="seed_section"
+                                                    checked={this.state.seed.enabled} 
                                                     onChange={this.handleChange}  
                                                 />
                                                 Seed Username
@@ -114,23 +145,23 @@ class PayWithSeeds extends React.Component {
 
                                             <input 
                                                 type="text" 
-                                                name="seedUser" 
-                                                value={this.state.username} 
+                                                name="username" 
+                                                value={this.state.seed.username} 
                                                 onChange={this.handleChange} 
                                                 placeholder="Seed Username"
-                                                disabled={this.state.group === "avatar_section"} 
+                                                disabled={!this.state.seed.enabled} 
                                             />
                                         </p>
 
                                         <p className="single-form-row">
                                             <label>Amount</label>
                                             <input 
-                                                type="text" 
+                                                type="number" 
                                                 name="amount" 
-                                                value={this.state.amount} 
+                                                value={this.state.seed.amount} 
                                                 onChange={this.handleChange}
                                                 placeholder="Amount"
-                                                disabled={this.state.group === "avatar_section"}  
+                                                disabled={!this.state.seed.enabled}   
                                             />
                                         </p>
 
@@ -141,8 +172,7 @@ class PayWithSeeds extends React.Component {
                                                 name="note" 
                                                 value={this.state.note} 
                                                 onChange={this.handleChange}
-                                                placeholder="Note"
-                                                disabled={this.state.group === "avatar_section"}  
+                                                placeholder="Note"  
                                             />
                                         </p>
 

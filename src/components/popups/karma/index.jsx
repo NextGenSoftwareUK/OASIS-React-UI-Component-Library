@@ -11,7 +11,7 @@ class Karma extends React.Component {
         return(
             <>
                 <ViewKarma
-                    show={props.karma.viewKarma}
+                    show={props.karma.viewKarmaWeightings}
                     hide={props.toggleScreenPopup}
                 />
                 <SearchKarma 
