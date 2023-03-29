@@ -308,7 +308,7 @@ class App extends React.Component {
                                     if(jwtToken && refreshToken) {
                                         option[menuName][popupName] = !option[menuName][popupName];
                                     } else {
-                                        toast.error("Please login first.")
+                                        toast.error("Please Beam in first.")
                                     }
                                 } else {
                                     option[menuName][popupName] = !option[menuName][popupName];

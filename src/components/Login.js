@@ -190,7 +190,7 @@ export default class Login extends React.Component {
                                         </div>
 
                                         <button type="submit" className="submit-button" disabled={isSubmitting}>
-                                            {loading ? 'Logging in ' : 'Submit '} {loading ? <Loader type="Oval" height={15} width={15} color="#fff" /> : null}
+                                            {loading ? 'Beaming in ' : 'Submit '} {loading ? <Loader type="Oval" height={15} width={15} color="#fff" /> : null}
                                         </button>
                                     </div>
                                 </form>

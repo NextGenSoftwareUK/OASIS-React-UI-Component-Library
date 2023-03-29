@@ -10,8 +10,21 @@ class Navbar extends React.Component {
         super(props);
 
         this.state = {
-            showProfileDropdown: false
+            showProfileDropdown: false,
+            shortName: ''
         }
+    }
+
+    componentDidMount = () => {
+        const name = localStorage.getItem("name");
+        console.log(name)
+        const words = name.split(' ');
+        const fl = words.map(word => word.charAt(0).toUpperCase());
+        console.log(fl.join(''))
+        // return fl.join('');
+        this.setState({
+            shortName: fl.join('')
+        })
     }
 
     handleUserProfileDropdownClicked = () => {
@@ -64,14 +77,14 @@ class Navbar extends React.Component {
                         loggedIn ?
 
                         <div className="user-profile-container">
-                            <p className="username profile-circle" onClick={() => this.handleUserProfileDropdownClicked()}>MA</p>
+                            <p className="username profile-circle" onClick={() => this.handleUserProfileDropdownClicked()}>{this.state.shortName}</p>
 
                             {
                                 this.state.showProfileDropdown ?
                                 <ul className="user-profile-dropdown">
                                     <li>
                                         <div className="user-info">
-                                            <p className="username profile-circle">MA</p>
+                                            <p className="username profile-circle">{this.state.shortName}</p>
 
                                             <p>
                                                 <span className="name">{user.name}</span>
