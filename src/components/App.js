@@ -326,11 +326,15 @@ class App extends React.Component {
     };
 
     render() {
+        console.log(window.location.host + '/avatar/verify-email')
         return (
             <Router>
                 <Switch>
-                    <Route path='/avatar/verify-email' component={VerifyEmail} />
-                    <Route path='/avatar/reset-password' component={ResetPassword} />
+                {/* window.location.host */}
+                    {/* <Route path='/avatar/verify-email' component={VerifyEmail} />
+                    <Route path='/avatar/reset-password' component={ResetPassword} /> */}
+                    <Route path={window.location.host + '/avatar/verify-email'} component={VerifyEmail} />
+                    <Route path={window.location.host + '/avatar/reset-password'} component={ResetPassword} />
                 </Switch>
 
                 <ToastContainer position="top-center" />
