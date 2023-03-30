@@ -18,13 +18,15 @@ class Navbar extends React.Component {
     componentDidMount = () => {
         const name = localStorage.getItem("name");
         console.log(name)
-        const words = name.split(' ');
-        const fl = words.map(word => word.charAt(0).toUpperCase());
-        console.log(fl.join(''))
-        // return fl.join('');
-        this.setState({
-            shortName: fl.join('')
-        })
+        if(name) {
+            const words = name.split(' ');
+            const fl = words.map(word => word.charAt(0).toUpperCase());
+            console.log(fl.join(''))
+            // return fl.join('');
+            this.setState({
+                shortName: fl.join('')
+            })
+        }
     }
 
     handleUserProfileDropdownClicked = () => {
