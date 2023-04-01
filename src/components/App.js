@@ -179,6 +179,7 @@ class App extends React.Component {
         comingSoon: false,
       }
     ],
+    shortName: ''
   };
 
     componentDidMount() {
@@ -215,6 +216,16 @@ class App extends React.Component {
             user: user,
             loggedIn: true
         })
+
+        const name = localStorage.getItem("name");
+        
+        if(name) {
+            const words = name.split(' ');
+            const fl = words.map(word => word.charAt(0).toUpperCase());
+            this.setState({
+                shortName: fl.join('')
+            })
+        }
     };
 
     toggleSidebar = () => {
@@ -349,6 +360,7 @@ class App extends React.Component {
                             handleLogout={this.handleLogout}
                             loggedIn={this.state.loggedIn}
                             user={this.state.user}
+                            shortName={this.state.shortName}
                         />
                         
                         <Sidebar
