@@ -11,21 +11,6 @@ class Navbar extends React.Component {
 
         this.state = {
             showProfileDropdown: false,
-            shortName: ''
-        }
-    }
-
-    componentDidMount = () => {
-        const name = localStorage.getItem("name");
-        console.log(name)
-        if(name) {
-            const words = name.split(' ');
-            const fl = words.map(word => word.charAt(0).toUpperCase());
-            console.log(fl.join(''))
-            // return fl.join('');
-            this.setState({
-                shortName: fl.join('')
-            })
         }
     }
 
@@ -57,7 +42,7 @@ class Navbar extends React.Component {
     }
 
     render() {
-        const { user, loggedIn, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar } = this.props;
+        const { shortName, user, loggedIn, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar } = this.props;
         // console.log(user)
         return (
             <nav className="nav">
@@ -79,14 +64,14 @@ class Navbar extends React.Component {
                         loggedIn ?
 
                         <div className="user-profile-container">
-                            <p className="username profile-circle" onClick={() => this.handleUserProfileDropdownClicked()}>{this.state.shortName}</p>
+                            <p className="username profile-circle" onClick={() => this.handleUserProfileDropdownClicked()}>{shortName}</p>
 
                             {
                                 this.state.showProfileDropdown ?
                                 <ul className="user-profile-dropdown">
                                     <li>
                                         <div className="user-info">
-                                            <p className="username profile-circle">{this.state.shortName}</p>
+                                            <p className="username profile-circle">{shortName}</p>
 
                                             <p>
                                                 <span className="name">{user.name}</span>
