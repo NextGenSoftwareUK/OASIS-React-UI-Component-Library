@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 // import Loader from "react-loader-spinner";
 import { AgGridReact } from 'ag-grid-react';
+import InfoIcon from '../../../../assets/images/icon-info.svg'
 import oasisApi from "oasis-api";
 
 class ViewKarma extends React.Component {
@@ -79,26 +80,19 @@ class ViewKarma extends React.Component {
         return (
             <>
                 <Modal
-                  centered
-                    className="custom-modal custom-popup-component"
+                    size="sm"
                     show={show}
                     dialogClassName="modal-90w"
-                    onHide={() => hide('karma', 'viewKarma')}
+                    onHide={() => hide('karma', 'viewKarmaWeightings')}
                 >
-                    <Modal.Body>
-                        <span className="form-cross-icon" onClick={() => hide('karma', 'viewKarma')}>
-                            <i className="fa fa-times"></i>
-                        </span>
-                        <h1 className="single-heading">View Current Karma</h1>
-
-                               <div className="ag-theme-alpine custom-ag-parent">
-                               <AgGridReact
-                                   columnDefs={this.state.columnDefs}
-                                   defaultColDef={this.state.defaultColDef}
-                                   onGridReady={this.onGridReady}
-                                   rowData={this.state.rowData}
-                               />
-                           </div>
+                    <Modal.Body className="text-center coming-soon">
+                        <img
+                            src={InfoIcon}
+                            alt="icon"
+                        />
+                        <h2>UI Coming Soon</h2>
+                        <p>This module is coming soon...</p>
+                        <button onClick={() => hide('karma', 'viewKarmaWeightings')}>OK</button>
                     </Modal.Body>
                 </Modal>
             </>
