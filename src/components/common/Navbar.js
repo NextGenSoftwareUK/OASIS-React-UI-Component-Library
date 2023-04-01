@@ -10,7 +10,22 @@ class Navbar extends React.Component {
         super(props);
 
         this.state = {
-            showProfileDropdown: false
+            showProfileDropdown: false,
+            shortName: ''
+        }
+    }
+
+    componentDidMount = () => {
+        const name = localStorage.getItem("name");
+        
+        if(name) {
+            const words = name.split(' ');
+            const fl = words.map(word => word.charAt(0).toUpperCase());
+            console.log(fl.join(''))
+            // return fl.join('');
+            this.setState({
+                shortName: fl.join('')
+            })
         }
     }
 
@@ -43,7 +58,9 @@ class Navbar extends React.Component {
 
     render() {
         const { user, loggedIn, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar } = this.props;
-        // console.log(user)
+
+        const shortName = (this.state.shortName) ? this.state.shortName : this.props.shortName;
+        
         return (
             <nav className="nav">
                 <div className="nav-left">
@@ -64,14 +81,14 @@ class Navbar extends React.Component {
                         loggedIn ?
 
                         <div className="user-profile-container">
-                            <p className="username profile-circle" onClick={() => this.handleUserProfileDropdownClicked()}>MA</p>
+                            <p className="username profile-circle" onClick={() => this.handleUserProfileDropdownClicked()}>{shortName}</p>
 
                             {
                                 this.state.showProfileDropdown ?
                                 <ul className="user-profile-dropdown">
                                     <li>
                                         <div className="user-info">
-                                            <p className="username profile-circle">MA</p>
+                                            <p className="username profile-circle">{shortName}</p>
 
                                             <p>
                                                 <span className="name">{user.name}</span>
@@ -92,8 +109,6 @@ class Navbar extends React.Component {
                         : 
 
                         <ul>
-                            {/* <li><a><Link to='/avatar/reset-password'>Reset</Link></a> </li> */}
-                            
                             <li onClick={showLogin}><a>Beam in</a> </li>
                             <li onClick={showSignup}><a>Sign up</a></li>
                         </ul>

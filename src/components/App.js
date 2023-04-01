@@ -80,7 +80,7 @@ class App extends React.Component {
       },
       {
         karma: {
-            viewKarma: false,
+            viewKarmaWeightings: false,
             voteKarma: false,
             viewAvatarKarma: false,
             searchKarma: false
@@ -179,6 +179,7 @@ class App extends React.Component {
         comingSoon: false,
       }
     ],
+    shortName: ''
   };
 
     componentDidMount() {
@@ -215,6 +216,16 @@ class App extends React.Component {
             user: user,
             loggedIn: true
         })
+
+        const name = localStorage.getItem("name");
+        
+        if(name) {
+            const words = name.split(' ');
+            const fl = words.map(word => word.charAt(0).toUpperCase());
+            this.setState({
+                shortName: fl.join('')
+            })
+        }
     };
 
     toggleSidebar = () => {
@@ -308,7 +319,7 @@ class App extends React.Component {
                                     if(jwtToken && refreshToken) {
                                         option[menuName][popupName] = !option[menuName][popupName];
                                     } else {
-                                        toast.error("Please login first.")
+                                        toast.error("You are not currently beamed in, please beam in first.")
                                     }
                                 } else {
                                     option[menuName][popupName] = !option[menuName][popupName];
@@ -326,11 +337,15 @@ class App extends React.Component {
     };
 
     render() {
+        console.log(window.location.host + '/avatar/verify-email')
         return (
             <Router>
                 <Switch>
-                    <Route path='/avatar/verify-email' component={VerifyEmail} />
-                    <Route path='/avatar/reset-password' component={ResetPassword} />
+                {/* window.location.host */}
+                    {/* <Route path='/avatar/verify-email' component={VerifyEmail} />
+                    <Route path='/avatar/reset-password' component={ResetPassword} /> */}
+                    <Route path={window.location.host + '/avatar/verify-email'} component={VerifyEmail} />
+                    <Route path={window.location.host + '/avatar/reset-password'} component={ResetPassword} />
                 </Switch>
 
                 <ToastContainer position="top-center" />
@@ -345,6 +360,7 @@ class App extends React.Component {
                             handleLogout={this.handleLogout}
                             loggedIn={this.state.loggedIn}
                             user={this.state.user}
+                            shortName={this.state.shortName}
                         />
                         
                         <Sidebar
