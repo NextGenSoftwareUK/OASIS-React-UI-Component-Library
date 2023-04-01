@@ -11,6 +11,21 @@ class Navbar extends React.Component {
 
         this.state = {
             showProfileDropdown: false,
+            shortName: ''
+        }
+    }
+
+    componentDidMount = () => {
+        const name = localStorage.getItem("name");
+        
+        if(name) {
+            const words = name.split(' ');
+            const fl = words.map(word => word.charAt(0).toUpperCase());
+            console.log(fl.join(''))
+            // return fl.join('');
+            this.setState({
+                shortName: fl.join('')
+            })
         }
     }
 
@@ -42,8 +57,10 @@ class Navbar extends React.Component {
     }
 
     render() {
-        const { shortName, user, loggedIn, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar } = this.props;
-        // console.log(user)
+        const { user, loggedIn, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar } = this.props;
+
+        const shortName = (this.state.shortName) ? this.state.shortName : this.props.shortName;
+        
         return (
             <nav className="nav">
                 <div className="nav-left">
@@ -92,8 +109,6 @@ class Navbar extends React.Component {
                         : 
 
                         <ul>
-                            {/* <li><a><Link to='/avatar/reset-password'>Reset</Link></a> </li> */}
-                            
                             <li onClick={showLogin}><a>Beam in</a> </li>
                             <li onClick={showSignup}><a>Sign up</a></li>
                         </ul>
