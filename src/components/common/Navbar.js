@@ -36,10 +36,11 @@ class Navbar extends React.Component {
     }
 
     handleLogoutClick = () => {
-        this.setState({
-            showProfileDropdown: false
-        })
-        this.props.handleLogout();
+        // this.setState({
+        //     showProfileDropdown: false
+        // })
+        // this.props.handleLogout();
+        this.props.showConfirm();
     }
 
     handleLogoClicked = (showLogin) => {

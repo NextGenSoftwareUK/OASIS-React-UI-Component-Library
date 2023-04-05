@@ -279,6 +279,12 @@ class App extends React.Component {
         })
     }
 
+    hideConfirmation = () => {
+        this.setState({
+            showConfirm: false 
+        })
+    }
+
     handleLogout = () => {
         console.log('going to call logout')
         const token = localStorage.getItem("jwtToken");
@@ -307,7 +313,8 @@ class App extends React.Component {
         //     });
         localStorage.clear();
         this.setState({
-            loggedIn: false
+            loggedIn: false,
+            showConfirm: false
         })
     };
 
@@ -366,7 +373,7 @@ class App extends React.Component {
                             loggedIn={this.state.loggedIn}
                             user={this.state.user}
                             shortName={this.state.shortName}
-                            showConfirm={this.showConfirm}
+                            showConfirm={this.showConfirmation}
                         />
                         
                         <Sidebar
@@ -379,7 +386,8 @@ class App extends React.Component {
                     <Confirmation
                         className="custom-form"
                         show={this.state.showConfirm}
-                        hide={this.hideConfirm}
+                        hide={this.hideConfirmation}
+                        logout={this.handleLogout}
                     />
 
                     <Login
