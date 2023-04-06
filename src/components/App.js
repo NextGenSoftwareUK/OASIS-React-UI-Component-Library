@@ -18,7 +18,7 @@ import Avatar from "./popups/avatar";
 import DataScreen from "./popups/data-screen";
 import Seeds from "./popups/seeds";
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, HashRouter, Switch, Route } from 'react-router-dom';
 
 import VerifyEmail from "./VerifyEmail";
 import Game from "./popups/game";
@@ -32,12 +32,14 @@ import Nft from "./popups/nft";
 import ForgotPassword from "./pages/forgotPassword";
 import ResetPassword from "./ResetPassword";
 import SidebarData from "./common/sidebar/SidebarData";
+import Confirmation from "./popups/confirmation/Confirmation.js";
 
 class App extends React.Component {
   state = {
     showSidebar: false,
     showLogin: false,
     showSignup: false,
+    showConfirm: false,
     showForgetPassword: false,
     user: null,
     loggedIn: false,
@@ -177,7 +179,7 @@ class App extends React.Component {
       },
       {
         comingSoon: false,
-      }
+      },
     ],
     shortName: ''
   };
@@ -271,6 +273,18 @@ class App extends React.Component {
         });
     };
 
+    showConfirmation = () => {
+        this.setState({
+            showConfirm: true 
+        })
+    }
+
+    hideConfirmation = () => {
+        this.setState({
+            showConfirm: false 
+        })
+    }
+
     handleLogout = () => {
         console.log('going to call logout')
         const token = localStorage.getItem("jwtToken");
@@ -299,7 +313,8 @@ class App extends React.Component {
         //     });
         localStorage.clear();
         this.setState({
-            loggedIn: false
+            loggedIn: false,
+            showConfirm: false
         })
     };
 
@@ -339,13 +354,10 @@ class App extends React.Component {
     render() {
         console.log(window.location.host + '/avatar/verify-email')
         return (
-            <Router>
+            <HashRouter hashType="slash">
                 <Switch>
-                {/* window.location.host */}
-                    {/* <Route path='/avatar/verify-email' component={VerifyEmail} />
-                    <Route path='/avatar/reset-password' component={ResetPassword} /> */}
-                    <Route path={window.location.host + '/avatar/verify-email'} component={VerifyEmail} />
-                    <Route path={window.location.host + '/avatar/reset-password'} component={ResetPassword} />
+                    <Route path="/avatar/verify-email" component={VerifyEmail} />
+                    <Route path="/avatar/reset-password" component={ResetPassword} />
                 </Switch>
 
                 <ToastContainer position="top-center" />
@@ -361,6 +373,7 @@ class App extends React.Component {
                             loggedIn={this.state.loggedIn}
                             user={this.state.user}
                             shortName={this.state.shortName}
+                            showConfirm={this.showConfirmation}
                         />
                         
                         <Sidebar
@@ -369,6 +382,13 @@ class App extends React.Component {
                             toggleScreenPopup={this.toggleScreenPopup}
                         />
                     </header>
+
+                    <Confirmation
+                        className="custom-form"
+                        show={this.state.showConfirm}
+                        hide={this.hideConfirmation}
+                        logout={this.handleLogout}
+                    />
 
                     <Login
                         className="custom-form"
@@ -460,8 +480,14 @@ class App extends React.Component {
                         show={this.state.sidebarMenuOption[5].comingSoon}
                         toggleScreenPopup={this.toggleScreenPopup}
                     /> */}
+
+                    {/* <Confirmation
+                        show={this.state.sidebarMenuOption[14].comingSoon}
+                        toggleScreenPopup={this.toggleScreenPopup}
+                        cancelConfirmation={this.cancelConfirmation}
+                    /> */}
                 </div>
-            </Router>
+            </HashRouter>
         );
     }
 
