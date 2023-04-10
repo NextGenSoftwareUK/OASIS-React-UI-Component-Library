@@ -13,7 +13,7 @@ class ManageSeeds extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('seeds', 'manageSeeds')}
                 >
                     <Modal.Body className="text-center coming-soon">

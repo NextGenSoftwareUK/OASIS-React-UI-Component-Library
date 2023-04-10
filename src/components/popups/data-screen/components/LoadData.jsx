@@ -100,7 +100,7 @@ class LoadData extends React.Component {
                     centered 
                     className="custom-modal custom-popup-component light-custom-popup" 
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('data', 'loadData')}
                 >
                     <Modal.Body>

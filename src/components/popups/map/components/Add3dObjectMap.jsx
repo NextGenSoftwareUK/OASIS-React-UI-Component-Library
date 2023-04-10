@@ -13,7 +13,7 @@ class Add3dObjectMap extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('map', 'add3dObjectMap')}
                 >
                     <Modal.Body className="text-center coming-soon">
