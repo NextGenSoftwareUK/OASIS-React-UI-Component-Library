@@ -9,7 +9,6 @@ class Confirmation extends React.Component {
             <Modal
                 size="sm"
                 show={this.props.show}
-                dialogClassName="modal-90w"
                 onHide={this.props.hide}
             >
                 <Modal.Body className="text-center coming-soon">

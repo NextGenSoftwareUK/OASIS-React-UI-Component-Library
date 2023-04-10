@@ -13,7 +13,7 @@ class ViewHalonsOnMap extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('map', 'viewHalonsOnMap')}
                 >
                     <Modal.Body className="text-center coming-soon">

@@ -13,7 +13,7 @@ class ManageMission extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('mission', 'manageMission')}
                 >
                     <Modal.Body className="text-center coming-soon">

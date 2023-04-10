@@ -67,6 +67,7 @@ export default class ResetPassword extends React.Component {
     
             axios.post('https://api.oasisplatform.world/api/Avatar/reset-password', data)
                 .then(response => {
+                    console.log(response)
                     if(response.data.result?.isError) {
                         toast.error(response.data.result.message);
                         return;
@@ -79,13 +80,11 @@ export default class ResetPassword extends React.Component {
     
                     this.setState({
                         loading: false,
-                        message: response.data.message,
                     });
                 })
                 .catch(error => {
                     this.setState({
                         loading: false,
-                        error: error.response.data.message,
                     });
                 });
         } else {
@@ -140,13 +139,13 @@ export default class ResetPassword extends React.Component {
                                         <div className={this.handleFormFieldClass(errors.oldPassword, touched.oldPassword)}>
                                             <label>Old Password</label>
                                             <input
-                                                type="text"
+                                                type="password"
                                                 name="oldPassword"
                                                 value={values.oldPassword}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 disabled={this.state.loading}
-                                                placeholder="oldPassword" />
+                                                placeholder="Old password" />
                                             <span className="text-danger">{errors.oldPassword && touched.oldPassword && errors.oldPassword}</span>
                                         </div>
 
@@ -172,7 +171,7 @@ export default class ResetPassword extends React.Component {
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 disabled={this.state.loading}
-                                                placeholder="confirmPassword" />
+                                                placeholder="Confirm password" />
                                             <span className="text-danger">{errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}</span>
                                         </div>
 

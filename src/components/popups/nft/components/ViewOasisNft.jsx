@@ -13,7 +13,7 @@ class ViewOasisNft extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('nft', 'viewOasisNft')}
                 >
                     <Modal.Body className="text-center coming-soon">

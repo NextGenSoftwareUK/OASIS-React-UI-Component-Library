@@ -13,7 +13,7 @@ class ManageOAPP extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('oapp', 'manageOAPP')}
                 >
                     <Modal.Body className="text-center coming-soon">
