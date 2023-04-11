@@ -17,10 +17,10 @@ class Confirmation extends React.Component {
                         alt="icon"
                     />
                     <h2>Are you Sure?</h2>
-                    <p>Are you sure you want to Beam out?</p>
+                    <p>Are you sure you want to Beam Out?</p>
 
                     <button onClick={this.props.hide}>Cancel</button>
-                    <button onClick={this.props.logout}>Beam out</button>
+                    <button onClick={this.props.logout}>Beam Out</button>
                 </Modal.Body>
             </Modal>
         );

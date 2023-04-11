@@ -178,15 +178,16 @@
                 cursor: pointer;
             }
             .user-profile-dropdown {
-                position: absolute;
-                right: 0;
+                position: fixed;
+                right: -300px;
                 width: 180px;
                 background-color: #fff;
                 border-radius: 6px;
                 padding: 15px 0;
-                top: 48px;
+                top: 65px;
                 box-shadow: 0 2px 8px rgba(0,0,0,.15);
                 min-width: 280px;
+                transition: all 0.3s ease-in-out;
                 li {
                     height: 40px;
                     line-height: 40px;
@@ -243,6 +244,9 @@
                         }
                     }
                 }
+            }
+            .user-profile-dropdown.show {
+                right: 15px;
             }
         }
     }

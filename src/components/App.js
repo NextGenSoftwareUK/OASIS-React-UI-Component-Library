@@ -334,7 +334,7 @@ class App extends React.Component {
                                     if(jwtToken && refreshToken) {
                                         option[menuName][popupName] = !option[menuName][popupName];
                                     } else {
-                                        toast.error("You are not currently beamed in, please beam in first.")
+                                        toast.error("You are not currently beamed in, please Beam In first.")
                                     }
                                 } else {
                                     option[menuName][popupName] = !option[menuName][popupName];

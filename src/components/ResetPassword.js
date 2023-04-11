@@ -145,7 +145,7 @@ export default class ResetPassword extends React.Component {
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 disabled={this.state.loading}
-                                                placeholder="Old password" />
+                                                placeholder="Old Password" />
                                             <span className="text-danger">{errors.oldPassword && touched.oldPassword && errors.oldPassword}</span>
                                         </div>
 
@@ -158,7 +158,7 @@ export default class ResetPassword extends React.Component {
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 disabled={this.state.loading}
-                                                placeholder="password" />
+                                                placeholder="Password" />
                                             <span className="text-danger">{errors.password && touched.password && errors.password}</span>
                                         </div>
 
@@ -171,7 +171,7 @@ export default class ResetPassword extends React.Component {
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 disabled={this.state.loading}
-                                                placeholder="Confirm password" />
+                                                placeholder="Confirm Password" />
                                             <span className="text-danger">{errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}</span>
                                         </div>
 
