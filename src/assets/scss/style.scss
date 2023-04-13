@@ -365,6 +365,9 @@
         left: 0;
     }
 }
+p {
+    color: #fff;
+}
 
 .popup-heading {
     margin: 0 0 40px;
@@ -418,6 +421,21 @@
     }
 }
 
+.grids-container {
+    height: inherit;
+    display: grid;
+    grid-gap: 25px;
+    margin: 0 0 25px;
+    .single-grid {
+        height: inherit;
+        p.heading {
+            font-size: 16px;
+            text-decoration: underline;
+            color: #fff;
+        }
+    }
+}
+
 .popup-container.default-popup {
     display: initial;
     position: initial;
@@ -426,4 +444,18 @@
 .modal-90w {
     width: 90vw;
     max-width: 90vw;
+}
+
+
+.btn-container {
+    display: flex;
+    grid-gap: 20px;
+    .single-btn {
+        button {
+            border: 1px solid #f6f6f6;
+            height: 45px;
+            min-width: 170px;
+            color: #fff;
+        }
+    }
 }
