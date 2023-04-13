@@ -366,6 +366,58 @@
     }
 }
 
+.popup-heading {
+    margin: 0 0 40px;
+    h3 {
+        font-size: 24px;
+        color: #000;
+        text-align: left;
+    }
+}
+
+.all-oaps-data {
+    max-width: 140px;
+    margin: 0 0 20px;
+    div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+        margin: 0 0 15px;
+    }
+    p {
+        text-align: left;
+        font-size: 14px;
+        margin: 0;
+    }
+}
+.all-oaps-table {
+    display: grid;
+    grid-gap: 15px;
+    p {
+        margin: 0;
+    }
+    .oapp-table-heading {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+        p {
+            text-decoration: underline;
+        }
+    }
+    .oapp-table-data {
+        .oapp-table-row {
+            .oapp-single-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-gap: 10px;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
 .popup-container.default-popup {
     display: initial;
     position: initial;
