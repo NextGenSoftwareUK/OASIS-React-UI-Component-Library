@@ -176,17 +176,19 @@
                 border-radius: 50%;
                 border: 1px solid #e0e0e0;
                 cursor: pointer;
+                color: #000;
             }
             .user-profile-dropdown {
-                position: absolute;
-                right: 0;
+                position: fixed;
+                right: -300px;
                 width: 180px;
                 background-color: #fff;
                 border-radius: 6px;
                 padding: 15px 0;
-                top: 48px;
+                top: 65px;
                 box-shadow: 0 2px 8px rgba(0,0,0,.15);
                 min-width: 280px;
+                transition: all 0.3s ease-in-out;
                 li {
                     height: 40px;
                     line-height: 40px;
@@ -243,6 +245,9 @@
                         }
                     }
                 }
+            }
+            .user-profile-dropdown.show {
+                right: 15px;
             }
         }
     }
@@ -361,6 +366,76 @@
         left: 0;
     }
 }
+p {
+    color: #fff;
+}
+
+.popup-heading {
+    margin: 0 0 40px;
+    h3 {
+        font-size: 24px;
+        color: #000;
+        text-align: left;
+    }
+}
+
+.all-oaps-data {
+    max-width: 140px;
+    margin: 0 0 20px;
+    div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+        margin: 0 0 15px;
+    }
+    p {
+        text-align: left;
+        font-size: 14px;
+        margin: 0;
+    }
+}
+.all-oaps-table {
+    display: grid;
+    grid-gap: 15px;
+    p {
+        margin: 0;
+    }
+    .oapp-table-heading {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+        p {
+            text-decoration: underline;
+        }
+    }
+    .oapp-table-data {
+        .oapp-table-row {
+            .oapp-single-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-gap: 10px;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.grids-container {
+    height: inherit;
+    display: grid;
+    grid-gap: 25px;
+    margin: 0 0 25px;
+    .single-grid {
+        height: inherit;
+        p.heading {
+            font-size: 16px;
+            text-decoration: underline;
+            color: #fff;
+        }
+    }
+}
 
 .popup-container.default-popup {
     display: initial;
@@ -370,4 +445,18 @@
 .modal-90w {
     width: 90vw;
     max-width: 90vw;
+}
+
+
+.btn-container {
+    display: flex;
+    grid-gap: 20px;
+    .single-btn {
+        button {
+            border: 1px solid #f6f6f6;
+            height: 45px;
+            min-width: 170px;
+            color: #fff;
+        }
+    }
 }

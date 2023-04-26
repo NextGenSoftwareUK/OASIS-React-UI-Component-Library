@@ -82,7 +82,7 @@ class ViewKarma extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('karma', 'viewKarmaWeightings')}
                 >
                     <Modal.Body className="text-center coming-soon">

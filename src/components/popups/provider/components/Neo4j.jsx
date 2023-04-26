@@ -13,7 +13,7 @@ class Neo4j extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('providers', 'neo4j')}
                 >
                     <Modal.Body className="text-center coming-soon">

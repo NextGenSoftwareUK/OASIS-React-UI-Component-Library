@@ -13,7 +13,7 @@ class SearchQuest extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('quest', 'searchQuest')}
                 >
                     <Modal.Body className="text-center coming-soon">

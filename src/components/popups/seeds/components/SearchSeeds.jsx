@@ -13,7 +13,7 @@ class SearchSeeds extends React.Component {
                 <Modal
                     size="lg"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('seeds', 'searchSeeds')}
                 >
                     <Modal.Body className="seed-modal">

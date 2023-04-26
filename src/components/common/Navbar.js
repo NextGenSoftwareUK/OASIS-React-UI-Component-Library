@@ -62,6 +62,8 @@ class Navbar extends React.Component {
 
         const shortName = (this.state.shortName) ? this.state.shortName : this.props.shortName;
         
+        const { showProfileDropdown } = this.state;
+
         return (
             <nav className="nav">
                 <div className="nav-left">
@@ -84,33 +86,28 @@ class Navbar extends React.Component {
                         <div className="user-profile-container">
                             <p className="username profile-circle" onClick={() => this.handleUserProfileDropdownClicked()}>{shortName}</p>
 
-                            {
-                                this.state.showProfileDropdown ?
-                                <ul className="user-profile-dropdown">
-                                    <li>
-                                        <div className="user-info">
-                                            <p className="username profile-circle">{shortName}</p>
+                            <ul className={"user-profile-dropdown " +(showProfileDropdown ? "show" : "")}>
+                                <li>
+                                    <div className="user-info">
+                                        <p className="username profile-circle">{shortName}</p>
 
-                                            <p>
-                                                <span className="name">{user.name}</span>
-                                                <span className="email">{user.email}</span>
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li>View/Edit Avatar</li>
-                                    <li>Messages</li>
-                                    <li>Contacts</li>
-                                    <li onClick={() => this.handleLogoutClick()}>Beam Out</li>
-                                </ul>
-
-                                : null
-                            }
+                                        <p>
+                                            <span className="name">{user.name}</span>
+                                            <span className="email">{user.email}</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>View/Edit Avatar</li>
+                                <li>Messages</li>
+                                <li>Contacts</li>
+                                <li onClick={() => this.handleLogoutClick()}>Beam Out</li>
+                            </ul>
                         </div>
 
                         : 
 
                         <ul>
-                            <li onClick={showLogin}><a>Beam in</a> </li>
+                            <li onClick={showLogin}><a>Beam In</a> </li>
                             <li onClick={showSignup}><a>Sign up</a></li>
                         </ul>
                     }
