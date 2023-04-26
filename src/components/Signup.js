@@ -135,7 +135,7 @@ export default class Signup extends React.Component {
 
                                         <p>
                                             Already have an account?
-                                            <span className="text-link" onClick={change}> Beam in!</span>
+                                            <span className="text-link" onClick={change}> Beam In!</span>
                                         </p>
                                     </div>
 

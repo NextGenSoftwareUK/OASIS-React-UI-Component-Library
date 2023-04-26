@@ -9,7 +9,6 @@ class Confirmation extends React.Component {
             <Modal
                 size="sm"
                 show={this.props.show}
-                dialogClassName="modal-90w"
                 onHide={this.props.hide}
             >
                 <Modal.Body className="text-center coming-soon">
@@ -18,10 +17,10 @@ class Confirmation extends React.Component {
                         alt="icon"
                     />
                     <h2>Are you Sure?</h2>
-                    <p>Are you sure you want to Beam out?</p>
+                    <p>Are you sure you want to Beam Out?</p>
 
                     <button onClick={this.props.hide}>Cancel</button>
-                    <button onClick={this.props.logout}>Beam out</button>
+                    <button onClick={this.props.logout}>Beam Out</button>
                 </Modal.Body>
             </Modal>
         );

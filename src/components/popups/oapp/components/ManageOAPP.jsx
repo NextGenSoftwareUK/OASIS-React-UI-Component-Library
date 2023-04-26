@@ -11,19 +11,53 @@ class ManageOAPP extends React.Component {
         return (
             <>
                 <Modal
-                    size="sm"
+                    size="md"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('oapp', 'manageOAPP')}
                 >
-                    <Modal.Body className="text-center coming-soon">
-                        <img
-                            src={InfoIcon}
-                            alt="icon"
-                        />
-                        <h2>STAR ODK Coming Soon.</h2>
-                        <p>This is functionaliy that is built in the STAR ODK and will soon be released. You can then download STAR ODK from the Developer menu.</p>
-                        <button onClick={() => hide('oapp', 'manageOAPP')}>OK</button>
+                    <Modal.Body className="">
+                        <div className="popup-heading">
+                            <h3>OAPPS INSTALLED</h3>
+                        </div>
+
+                        <div className="all-oaps-data">
+                            <div>
+                                <p>hAPP: 5</p>
+                                <p>SOLID: 3</p>
+                                <p>ETH: 7</p>
+                                <p>WEB: 3</p>
+                            </div>
+
+                            <p>Total: 18</p>
+                        </div>
+
+                        <div className="all-oaps-table">
+                            <div className="oapp-table-heading">
+                                <p>OAPP</p>
+                                <p>Installed</p>
+                                <p>Version</p>
+                                <p>Type</p>
+                            </div>
+
+                            <div className="oapp-table-data">
+                                <div className="oapp-table-row">
+                                    <div className="oapp-single-row">
+                                        <p>Our World</p>
+                                        <p>01/01/2023</p>
+                                        <p>Alpha 0.01</p>
+                                        <p>hApp</p>
+                                    </div>
+
+                                    <div className="oapp-single-row">
+                                        <p>Our World</p>
+                                        <p>01/01/2023</p>
+                                        <p>Alpha 0.01</p>
+                                        <p>hApp</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </Modal.Body>
                 </Modal>
             </>

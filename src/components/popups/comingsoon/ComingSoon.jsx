@@ -8,7 +8,7 @@ class ComingSoon extends React.Component {
             <Modal
                 size="sm"
                 show={this.props.show}
-                dialogClassName="modal-90w"
+                dialogClassName=""
                 onHide={this.props.toggleScreenPopup}
             >
                 <Modal.Body className="text-center coming-soon">

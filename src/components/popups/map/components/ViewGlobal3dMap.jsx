@@ -13,7 +13,7 @@ class ViewGlobal3dMap extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('map', 'viewGlobal3dMap')}
                 >
                     <Modal.Body className="text-center coming-soon">

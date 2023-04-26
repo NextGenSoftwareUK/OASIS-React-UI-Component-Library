@@ -13,7 +13,7 @@ class DownloadOurWorld extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('map', 'downloadOurWorld')}
                 >
                     <Modal.Body className="text-center coming-soon">
@@ -21,8 +21,8 @@ class DownloadOurWorld extends React.Component {
                             src={InfoIcon}
                             alt="icon"
                         />
-                        <h2>Our World Coming Soon.</h2>
-                        <p>This is functionaliy that is built in the Unity Smartphone Prototype for Our World and will soon be released. You can then download Our World from either the Map or OAPP menu.</p>
+                        <h2>STAR ODK Coming Soon.</h2>
+                        <p>The alpha release of this will be coming soon… please check back soon… thank you.</p>
                         <button onClick={() => hide('map', 'downloadOurWorld')}>OK</button>
                     </Modal.Body>
                 </Modal>

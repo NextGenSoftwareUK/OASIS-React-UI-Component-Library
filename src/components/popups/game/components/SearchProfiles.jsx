@@ -13,7 +13,7 @@ class SearchProfiles extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('game', 'searchProfiles')}
                 >
                     <Modal.Body className="text-center coming-soon">

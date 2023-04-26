@@ -136,7 +136,7 @@ export default class Login extends React.Component {
 
                                 <form className="custom-form" onSubmit={handleSubmit}>
                                     <div className="form-header">
-                                        <h2>Beam in</h2>
+                                        <h2>Beam In</h2>
 
                                         <p>
                                             Don't have an account? 

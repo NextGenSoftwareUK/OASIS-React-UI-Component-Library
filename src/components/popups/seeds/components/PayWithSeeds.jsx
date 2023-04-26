@@ -6,47 +6,56 @@ import { toast } from "react-toastify";
 
 class PayWithSeeds extends React.Component {
 
-    constructor(){
-      super()
-      this.state = {
-        group: '',
-        avatar: '',
-        seedUser: '',
-        amount: '',
-        note: '',
+    constructor() {
+        console.log('Going to show Pay with Seeds');
+        super()
+        this.state = {
+            group: '',
+            avatar: '',
+            seedUser: '',
+            amount: '',
+            note: '',
 
-        avatar: {
-            enabled: true,
-            name: ''
-        },
-        seed: {
-            enabled: false,
-            username: '',
-            amount: 0
-        },
-        note: ''
-      }
+            avatar: {
+                enabled: true,
+                name: ''
+            },
+            seed: {
+                enabled: false,
+                username: '',
+                amount: 0
+            },
+            note: ''
+        }
     }
 
     componentDidMount = () => {
-        this.loadAllAvatarData();
+        // this.loadAllAvatarData();
     }
 
     loadAllAvatarData = () => {
-        // axios.get('https://api.oasisplatform.world/api/avatar/get-all-avatars')
-        // .then(response => {
-        //     console.log(response)
-        //     if(response.data.isError) {
-        //         toast.error(response.data.message)
-        //     } else {
-        //         toast.success(response.data.result.message)
-        //     }
-        //     // this.props.history.goBack()
-        //     // console.log(this.props) 
-        // })
-        // .catch(error => {
-        //     console.log(error)
-        // })
+        const jwtToken = localStorage.getItem('jwtToken');
+
+        const headers = {
+            'Authorization': `Bearer ${jwtToken}`,
+            'Content-Type': 'application/json'
+        };
+
+        console.log('going to load all avatars ')
+        axios.get('https://api.oasisplatform.world/api/avatar/get-all-avatars', { headers })
+        .then(response => {
+            console.log(response)
+            if(response.data.isError) {
+                toast.error(response.data.message)
+            } else {
+                toast.success(response.data.result.message)
+            }
+            // this.props.history.goBack()
+            // console.log(this.props) 
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     handleChange = (e) => {
@@ -87,7 +96,9 @@ class PayWithSeeds extends React.Component {
 
     render() {
         const { show, hide } = this.props;
-
+        if(show) {
+            this.loadAllAvatarData();
+        }
         return (
             <>
                 <Modal

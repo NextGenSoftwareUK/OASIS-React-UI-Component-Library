@@ -13,7 +13,7 @@ class ManageLoadBalancing extends React.Component {
                 <Modal
                     size="sm"
                     show={show}
-                    dialogClassName="modal-90w"
+                    dialogClassName=""
                     onHide={() => hide('providers', 'manageLoadBalancing')}
                 >
                     <Modal.Body className="text-center coming-soon">

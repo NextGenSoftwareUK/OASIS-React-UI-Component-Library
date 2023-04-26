@@ -60,7 +60,7 @@ class Message extends React.Component {
             <Modal
                 size="xl"
                 show={true}
-                dialogClassName="modal-90w"
+                dialogClassName=""
                 onHide={() => this.props.history.push("/")}
             >
                 <Modal.Header closeButton>
