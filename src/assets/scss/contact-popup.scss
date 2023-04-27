@@ -57,11 +57,15 @@
 }
 .contact-navbar {
     ul {
+        height: 45px;
         display: flex;
+        align-items: center;
+        justify-content: center;
         li {
             width: 100px;
             height: 35px;
             border: 1px solid white;
+            text-align: center;
             &:hover{
                 height: 45px;
             }
@@ -75,4 +79,8 @@
     width: 200px;
     height: 45px;
     border: 1px solid white;
+    button{
+        text-align: center;
+        color: white;
+    }
 }
