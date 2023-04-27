@@ -79,7 +79,10 @@
             width: 100px;
             height: 35px;
             border: 1px solid white;
-            text-align: center;
+            // text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             &:hover {
                 height: 45px;
@@ -98,12 +101,11 @@
     align-items: flex-end;
     justify-content: center;
     button {
+        width: 200px;
         height: 45px;
         border: 1px solid white;
         text-align: center;
         color: white;
-        &:hover {
-            height: 55px;
-        }
+       
     }
 }
