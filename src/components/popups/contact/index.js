@@ -3,17 +3,17 @@ import '../../../assets/scss/contact-popup.scss';
 import { Modal } from 'react-bootstrap';
 
 class ContactPopup extends React.Component {
-    render() { 
+    render() {
         const { show, hide } = this.props;
 
         console.log(this.props)
 
         return (
             <>
-                <Modal 
-                    centered 
-                    className="custom-modal custom-popup-component" 
-                    show={show} 
+                <Modal
+                    centered
+                    className="custom-modal custom-popup-component"
+                    show={show}
                     onHide={() => hide()}
                 >
                     <Modal.Body>
@@ -24,18 +24,18 @@ class ContactPopup extends React.Component {
                         <div className="popup-container default-popup">
                             <div className="data-screen-container">
                                 <h1 className="single-heading">Contact</h1>
-                                <div className='contactNavbar'>
+                                <div className='contact-navbar'>
                                     <ul>
                                         <li>Friends</li>
                                         <li>Colleagues</li>
                                         <li>MyList</li>
                                     </ul>
                                 </div>
-                                <div>
+                                <div className='contact-popup-button'>
                                     <button>Send Message</button>
                                     <button>Remove Message</button>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </Modal.Body>
@@ -44,5 +44,5 @@ class ContactPopup extends React.Component {
         );
     }
 }
- 
+
 export default ContactPopup;
