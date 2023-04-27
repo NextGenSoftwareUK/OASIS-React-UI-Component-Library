@@ -55,3 +55,24 @@
         }
     }
 }
+.contact-navbar {
+    ul {
+        display: flex;
+        li {
+            width: 100px;
+            height: 35px;
+            border: 1px solid white;
+            &:hover{
+                height: 45px;
+            }
+            &:active{
+                height: 45px;
+            }
+        }
+    }
+}
+.contact-popup-button{
+    width: 200px;
+    height: 45px;
+    border: 1px solid white;
+}
