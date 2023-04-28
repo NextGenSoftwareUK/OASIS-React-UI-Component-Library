@@ -1,25 +1,30 @@
 import React from 'react';
 import '../../../assets/scss/contact-popup.scss';
 import { Modal } from 'react-bootstrap';
+import { AgGridReact } from 'ag-grid-react';
 
 class ContactPopup extends React.Component {
     state = {
         columnDefs: [
-           {
-                headerName: 'Avatar',
-           },
-           {
-                headerName: 'Level Karma',
-           },
-           {
-                headerName: 'Beamed In',
-           },
-           {
-                headerName: 'Last Beamed In',
-           },
-           {
-                headerName: 'Added to Contacts',
-           }
+            {
+                fieldName: "avatar",
+                headerName: "Avatar",
+            },
+            {
+                fieldName: "levelKarma",
+                headerName: "Level Karma",
+            },
+            {
+                fieldName: "beamedIn",
+                headerName: "Beamed In",
+            },
+            {
+                fieldName: "lastBeamedIn",
+                headerName: "Last Beamed In",
+            },
+            {
+                fieldName: "addedToContacts",
+            }
         ],
         defaultColDef: {
             flex: 1,
@@ -38,31 +43,31 @@ class ContactPopup extends React.Component {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
 
-        const avatar = new oasisApi.Avatar()
-        const karma = new oasisApi.Karma()
+        // const avatar = new oasisApi.Avatar()
+        // const karma = new oasisApi.Karma()
 
-        const res = await avatar.getAll()
-        if (!res.error) {
-            let avatars = []
-            const users = res.data.result
-            for (let i = 0; i <= users.length - 1; i++) {
-                let user = users[i]
-                console.log('user')
-                const karmaRes = await karma.getKarmaForAvatar(user.avatarId)
-                console.log(karmaRes)
-                let temp = {
-                    avatar: user.username,
-                    level: 1,
-                    karma: karmaRes.data.result,
-                    sex: user.title === 'Mr' ? 'Male' : 'Female',
-                    created: 'Now',
-                    last: 'Now ',
-                    online: user.isBeamedIn
-                }
-                avatars.push(temp)
-            }
-            this.setState({ rowData: avatars })
-        }
+        // const res = await avatar.getAll()
+        // if (!res.error) {
+        //     let avatars = []
+        //     const users = res.data.result
+        //     for (let i = 0; i <= users.length - 1; i++) {
+        //         let user = users[i]
+        //         console.log('user')
+        //         const karmaRes = await karma.getKarmaForAvatar(user.avatarId)
+        //         console.log(karmaRes)
+        //         let temp = {
+        //             avatar: user.username,
+        //             level: 1,
+        //             karma: karmaRes.data.result,
+        //             sex: user.title === 'Mr' ? 'Male' : 'Female',
+        //             created: 'Now',
+        //             last: 'Now ',
+        //             online: user.isBeamedIn
+        //         }
+        //         avatars.push(temp)
+        //     }
+        //     this.setState({ rowData: avatars })
+        // }
     }
 
     render() {
@@ -73,6 +78,7 @@ class ContactPopup extends React.Component {
         return (
             <>
                 <Modal
+                    size="xl"
                     centered
                     className="custom-modal custom-popup-component"
                     show={show}
