@@ -42,32 +42,6 @@ class ContactPopup extends React.Component {
     onGridReady = async (params) => {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
-
-        // const avatar = new oasisApi.Avatar()
-        // const karma = new oasisApi.Karma()
-
-        // const res = await avatar.getAll()
-        // if (!res.error) {
-        //     let avatars = []
-        //     const users = res.data.result
-        //     for (let i = 0; i <= users.length - 1; i++) {
-        //         let user = users[i]
-        //         console.log('user')
-        //         const karmaRes = await karma.getKarmaForAvatar(user.avatarId)
-        //         console.log(karmaRes)
-        //         let temp = {
-        //             avatar: user.username,
-        //             level: 1,
-        //             karma: karmaRes.data.result,
-        //             sex: user.title === 'Mr' ? 'Male' : 'Female',
-        //             created: 'Now',
-        //             last: 'Now ',
-        //             online: user.isBeamedIn
-        //         }
-        //         avatars.push(temp)
-        //     }
-        //     this.setState({ rowData: avatars })
-        // }
     }
 
     render() {
@@ -100,6 +74,7 @@ class ContactPopup extends React.Component {
                                         <li>MyList</li>
                                     </ul>
                                 </div>
+                                
                                 <div className="ag-theme-alpine custom-ag-parent">
                                     <AgGridReact
                                         columnDefs={this.state.columnDefs}
@@ -108,11 +83,11 @@ class ContactPopup extends React.Component {
                                         rowData={this.state.rowData}
                                     />
                                 </div>
+
                                 <div className='contact-popup-button'>
                                     <button>Send Message</button>
                                     <button>Remove Friends</button>
                                 </div>
-
                             </div>
                         </div>
                     </Modal.Body>

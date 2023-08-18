@@ -18,7 +18,6 @@ export default class ResetPassword extends React.Component {
             show: false,
             form: {
                 token: '',
-                oldPassword: '',
                 password: '',
                 confirmPassword: ''
             },
@@ -30,9 +29,9 @@ export default class ResetPassword extends React.Component {
     validationSchema = Yup.object().shape({
         token: Yup.string()
             .required("Token is required"),
-        oldPassword: Yup.string()
-            .required("Old Password is required.")
-            .min(8, "Password is too short - should be 8 characters minimum."),
+        // oldPassword: Yup.string()
+        //     .required("Old Password is required.")
+        //     .min(8, "Password is too short - should be 8 characters minimum."),
         password: Yup.string()
             .required("Password is required.")
             .min(8, "Password is too short - should be 8 characters minimum."),    
@@ -54,10 +53,11 @@ export default class ResetPassword extends React.Component {
     }
 
     handleResetPassword = () => {
+        console.log("clicked")
         if (this.state.form.password === this.state.form.confirmPassword) {
             let data = {
                 token: this.state.form.token, // use token from form state
-                oldPassword: this.state.oldPassword,
+                // oldPassword: this.state.oldPassword,
                 password: this.state.form.password,
                 confirmPassword: this.state.form.confirmPassword
             }
@@ -98,7 +98,6 @@ export default class ResetPassword extends React.Component {
         const token = searchParams.get('token');
         const initialValues = {
             token: token || '',
-            oldPassword: '',
             password: '',
             confirmPassword: ''
         };
@@ -136,7 +135,7 @@ export default class ResetPassword extends React.Component {
                                     </div>
 
                                     <div className="form-inputs">
-                                        <div className={this.handleFormFieldClass(errors.oldPassword, touched.oldPassword)}>
+                                        {/* <div className={this.handleFormFieldClass(errors.oldPassword, touched.oldPassword)}>
                                             <label>Old Password</label>
                                             <input
                                                 type="password"
@@ -147,7 +146,7 @@ export default class ResetPassword extends React.Component {
                                                 disabled={this.state.loading}
                                                 placeholder="Old Password" />
                                             <span className="text-danger">{errors.oldPassword && touched.oldPassword && errors.oldPassword}</span>
-                                        </div>
+                                        </div> */}
 
                                         <div className={this.handleFormFieldClass(errors.password, touched.password)}>
                                             <label>Password</label>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal } from "react-bootstrap";
 import '../../../../assets/scss/coming-soon.scss';
 import InfoIcon from '../../../../assets/images/icon-info.svg';
+import { AgGridReact } from 'ag-grid-react';
 
 import axios from "axios";
 
@@ -59,13 +60,13 @@ class ViewOrganizations extends React.Component {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
     
-        const updateData = (data) => {
-          this.setState({ rowData: data });
-        };
+        // const updateData = (data) => {
+        //   this.setState({ rowData: data });
+        // };
     
-        fetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
-          .then((resp) => resp.json())
-          .then((data) => updateData(data));
+        // fetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
+        //   .then((resp) => resp.json())
+        //   .then((data) => updateData(data));
     };
     
     loadDataFromApi = () => {
@@ -95,12 +96,12 @@ class ViewOrganizations extends React.Component {
         const { show, hide } = this.props;
 
         if(show) {
-            this.loadDataFromApi();
+            // this.loadDataFromApi();
         }
 
         return (
             <>
-                <Modal
+                {/* <Modal
                     size="sm"
                     show={show}
                     dialogClassName=""
@@ -115,14 +116,15 @@ class ViewOrganizations extends React.Component {
                         <p>You can use this functionality directly by accessing the OASIS API from the Developer menu.</p>
                         <button onClick={() => hide('seeds', 'viewOrganizations')}>OK</button>
                     </Modal.Body>
-                </Modal>
+                </Modal> */}
 
-                {/* <Modal 
+                <Modal 
+                    size="xl"
                     centered 
                     className="custom-modal custom-popup-component light-custom-popup" 
                     show={show}
                     dialogClassName=""
-                    onHide={() => hide('data', 'loadData')}
+                    onHide={() => hide('seeds', 'viewOrganizations')}
                 >
                     <Modal.Body>
                         <span className="form-cross-icon" onClick={() => hide('seeds', 'viewOrganizations')}>
@@ -140,7 +142,7 @@ class ViewOrganizations extends React.Component {
                             />
                         </div>
                     </Modal.Body>
-                </Modal> */}
+                </Modal>
             </>
         );
     }
