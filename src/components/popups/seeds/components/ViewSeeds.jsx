@@ -131,7 +131,7 @@ class ViewSeeds extends React.Component {
                     onHide={() => hide('seeds', 'viewSeeds')}
                 >
                     <Modal.Body>
-                        <span className="form-cross-icon" onClick={() => hide('data', 'loadData')}>
+                        <span className="form-cross-icon" onClick={() => hide('seeds', 'viewSeeds')}>
                             <i className="fa fa-times"></i>
                         </span>
 
