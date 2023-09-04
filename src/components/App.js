@@ -5,7 +5,8 @@ import Sidebar from "./common/sidebar/Sidebar";
 import Login from "./Login";
 import Signup from "./Signup";
 import Solana from "./popups/nft/Solana";
-import ContactPopup from "./popups/nft/ContactPopup";
+// import ContactPopup from "./popups/nft/ContactPopup";
+import ContactPopup from "./popups/contact/index";
 import Karma from "./popups/karma";
 
 import "../assets/scss/general.scss";
@@ -181,6 +182,9 @@ class App extends React.Component {
         comingSoon: false,
       },
     ],
+    contact: {
+        contactPopup: false
+    },
     shortName: ''
   };
 
@@ -285,6 +289,22 @@ class App extends React.Component {
         })
     }
 
+    showContactPopup = () => {
+        this.setState({
+            contact: {
+                contactPopup: true
+            }
+        })
+    }
+
+    hideContactPopup = () => {
+        this.setState({
+            contact: {
+                contactPopup: false
+            }
+        })
+    }
+
     handleLogout = () => {
         console.log('going to call logout')
         const token = localStorage.getItem("jwtToken");
@@ -374,6 +394,7 @@ class App extends React.Component {
                             user={this.state.user}
                             shortName={this.state.shortName}
                             showConfirm={this.showConfirmation}
+                            showContactPopup={this.showContactPopup}
                         />
                         
                         <Sidebar
@@ -416,10 +437,10 @@ class App extends React.Component {
                         hide={this.toggleScreenPopup}
                     />
 
-                    <ContactPopup
+                    {/* <ContactPopup
                         show={this.state.sidebarMenuOption[1].nft.contactPopup}
                         hide={this.toggleScreenPopup}
-                    />
+                    /> */}
 
                     <Seeds
                         seeds={this.state.sidebarMenuOption[2].seeds}
@@ -486,6 +507,12 @@ class App extends React.Component {
                         toggleScreenPopup={this.toggleScreenPopup}
                         cancelConfirmation={this.cancelConfirmation}
                     /> */}
+
+                    <ContactPopup
+                        show={this.state.contact.contactPopup}
+                        showPopup={this.showContactPopup}
+                        hide={this.hideContactPopup}
+                    />
                 </div>
             </HashRouter>
         );

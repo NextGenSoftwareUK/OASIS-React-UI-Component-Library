@@ -1,16 +1,72 @@
 import React from 'react';
-
 import { Modal } from 'react-bootstrap';
-
 import '../../../../assets/scss/avatar-popup.scss';
+import { AgGridReact } from 'ag-grid-react';
 
 class AvatarWallet extends React.Component {
+    state = {
+        columnDefs: [
+            {
+                fieldName: "date",
+                headerName: "Date",
+            },
+            {
+                fieldName: "note",
+                headerName: "Note",
+            },
+            {
+                fieldName: "fromAvatar",
+                headerName: "From Avatar",
+            },
+            {
+                fieldName: "fromWallet",
+                headerName: "From Wallet",
+            },
+            {
+                fieldName: "token",
+                headerName: "Token"
+            },
+            {
+                fieldName: "amount",
+                headerName: "Amount"
+            },
+            {
+                fieldName: "balance",
+                headerName: "Balance"
+            },
+            {
+                fieldName: "provider",
+                headerName: "Provider"
+            },
+            {
+                fieldName: "type",
+                headerName: "Type"
+            }
+        ],
+        defaultColDef: {
+            flex: 1,
+            minWidth: 150,
+            filter: true,
+            sortable: true,
+            floatingFilter: true,
+            resizable: true,
+        },
+        rowData: null,
+        loading: true,
+        loggedIn: true,
+    };
+
+    onGridReady = async (params) => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+    }
+
     render() {
         const { show, hide } = this.props;
 
         return (
             <>
-                <Modal
+                {/* <Modal
                     centered
                     className="custom-modal custom-popup-component w-100 "
                     show={show}
@@ -22,13 +78,12 @@ class AvatarWallet extends React.Component {
                         </span>
 
                         <div className="page new-skin">
-                            {/* Container */}
                             <div className="container opened" data-animation-in="fadeInLeft" data-animation-out="fadeOutLeft">
                                 
                                     <h1 class="single-heading">Avatar Wallet</h1>    
-                                {/* Card - Started */}
+                                
                                 <div className="card-started" id="home-card">
-                                    {/* Profile */}
+                                    
                                     <div className="profile no-photo">
                                         <div className="slide" />
                                         <div className="title">Username</div>
@@ -43,15 +98,35 @@ class AvatarWallet extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                                {/* Card - 1 */}
-                                {/* <div className="card-inner animated" >
-                                    <div className="card-wrap"> */}
-                                        {/* Content */}
-                                        {/* <div className="content">
-                                            <div className="title">Card 1</div>
-                                        </div>
-                                    </div>
-                                </div> */}
+                               
+                            </div>
+                        </div>
+                    </Modal.Body>
+                </Modal> */}
+
+                <Modal
+                    size="xl"
+                    centered
+                    className="custom-modal custom-popup-component"
+                    show={show}
+                    onHide={() => hide('avatar', 'avatarWallet')}
+                >
+                    <Modal.Body>
+                        <span className="form-cross-icon" onClick={() => hide('avatar', 'avatarWallet')}>
+                            <i className="fa fa-times"></i>
+                        </span>
+
+                        <div className="popup-container default-popup">
+                            <div className="data-screen-container">
+                                
+                                <div className="ag-theme-alpine custom-ag-parent">
+                                    <AgGridReact
+                                        columnDefs={this.state.columnDefs}
+                                        defaultColDef={this.state.defaultColDef}
+                                        onGridReady={this.onGridReady}
+                                        rowData={this.state.rowData}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </Modal.Body>

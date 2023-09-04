@@ -58,7 +58,7 @@ class Navbar extends React.Component {
     }
 
     render() {
-        const { user, loggedIn, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar } = this.props;
+        const { user, loggedIn, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar, showContactPopup } = this.props;
 
         const shortName = (this.state.shortName) ? this.state.shortName : this.props.shortName;
         
@@ -99,7 +99,7 @@ class Navbar extends React.Component {
                                 </li>
                                 <li>View/Edit Avatar</li>
                                 <li>Messages</li>
-                                <li>Contacts</li>
+                                <li onClick={showContactPopup}>Contacts</li>
                                 <li onClick={() => this.handleLogoutClick()}>Beam Out</li>
                             </ul>
                         </div>
