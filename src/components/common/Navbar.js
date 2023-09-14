@@ -13,6 +13,8 @@ class Navbar extends React.Component {
             showProfileDropdown: false,
             shortName: ''
         }
+
+        this.navRef = React.createRef();
     }
 
     componentDidMount = () => {
@@ -27,6 +29,8 @@ class Navbar extends React.Component {
                 shortName: fl.join('')
             })
         }
+
+        document.addEventListener('mousedown', this.clickOutsideListener);
     }
 
     handleUserProfileDropdownClicked = () => {
@@ -55,6 +59,20 @@ class Navbar extends React.Component {
         } else {
             showLogin();
         }
+    }
+
+    clickOutsideListener = (event) => {
+        const navNode = this.navRef.current;
+    
+        if (navNode && !navNode.contains(event.target)) {
+          this.setState({
+            showProfileDropdown: false,
+          });
+        }
+    };
+    
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.clickOutsideListener);
     }
 
     render() {
@@ -86,7 +104,7 @@ class Navbar extends React.Component {
                         <div className="user-profile-container">
                             <p className="username profile-circle" onClick={() => this.handleUserProfileDropdownClicked()}>{shortName}</p>
 
-                            <ul className={"user-profile-dropdown " +(showProfileDropdown ? "show" : "")}>
+                            <ul className={"user-profile-dropdown " +(showProfileDropdown ? "show" : "")} ref={this.navRef}>
                                 <li>
                                     <div className="user-info">
                                         <p className="username profile-circle">{shortName}</p>
