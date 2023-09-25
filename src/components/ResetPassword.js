@@ -29,9 +29,6 @@ export default class ResetPassword extends React.Component {
     validationSchema = Yup.object().shape({
         token: Yup.string()
             .required("Token is required"),
-        // oldPassword: Yup.string()
-        //     .required("Old Password is required.")
-        //     .min(8, "Password is too short - should be 8 characters minimum."),
         password: Yup.string()
             .required("Password is required.")
             .min(8, "Password is too short - should be 8 characters minimum."),    
@@ -53,34 +50,24 @@ export default class ResetPassword extends React.Component {
     }
 
     handleResetPassword = () => {
-        console.log("clicked")
         if (this.state.form.password === this.state.form.confirmPassword) {
             let data = {
                 token: this.state.form.token, // use token from form state
-                // oldPassword: this.state.oldPassword,
-                password: this.state.form.password,
-                confirmPassword: this.state.form.confirmPassword
+                NewPassword: this.state.form.password,
+                ConfirmNewPassword: this.state.form.confirmPassword
             }
             this.setState({ loading: true })
     
-            console.log(data)
-    
             axios.post('https://api.oasisplatform.world/api/Avatar/reset-password', data)
                 .then(response => {
-                    console.log(response)
+                    this.setState({loading: false});
+
                     if(response.data.result?.isError) {
                         toast.error(response.data.result.message);
                         return;
                     }
-                    
-                    // const { history } = this.props;
-                    // history.push('/');
     
                     toast.success(response?.data?.result.message);
-    
-                    this.setState({
-                        loading: false,
-                    });
                 })
                 .catch(error => {
                     this.setState({
@@ -96,13 +83,12 @@ export default class ResetPassword extends React.Component {
     render() {
         const searchParams = new URLSearchParams(this.props.location.search);
         const token = searchParams.get('token');
+
         const initialValues = {
             token: token || '',
             password: '',
             confirmPassword: ''
         };
-        // const { loading } = this.state;
-        // const { show, hide } = this.props;
 
         return (
             <>
@@ -135,19 +121,6 @@ export default class ResetPassword extends React.Component {
                                     </div>
 
                                     <div className="form-inputs">
-                                        {/* <div className={this.handleFormFieldClass(errors.oldPassword, touched.oldPassword)}>
-                                            <label>Old Password</label>
-                                            <input
-                                                type="password"
-                                                name="oldPassword"
-                                                value={values.oldPassword}
-                                                onChange={handleChange}
-                                                onBlur={handleBlur}
-                                                disabled={this.state.loading}
-                                                placeholder="Old Password" />
-                                            <span className="text-danger">{errors.oldPassword && touched.oldPassword && errors.oldPassword}</span>
-                                        </div> */}
-
                                         <div className={this.handleFormFieldClass(errors.password, touched.password)}>
                                             <label>Password</label>
                                             <input
