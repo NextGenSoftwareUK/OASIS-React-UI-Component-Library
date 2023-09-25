@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 
+import { Link, withRouter } from "react-router-dom";
+
 class VerifyEmail extends Component {
 
     constructor(props) {
@@ -25,9 +27,8 @@ class VerifyEmail extends Component {
                 toast.error(response?.data?.result.message);
                 return;
             }
-            
-            const { history } = this.props;
-            history.push('/');
+
+            this.props.history.push('/');
 
             toast.success(response?.data?.result.message);
             this.setState({
@@ -61,4 +62,4 @@ class VerifyEmail extends Component {
   }
 }
 
-export default VerifyEmail;
+export default withRouter(VerifyEmail);
