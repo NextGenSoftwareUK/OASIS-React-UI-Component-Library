@@ -8,8 +8,9 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
 
+import { Link, withRouter } from "react-router-dom";
 
-export default class ResetPassword extends React.Component {
+class ResetPassword extends React.Component {
 
     constructor(props) {
         super(props);
@@ -66,6 +67,8 @@ export default class ResetPassword extends React.Component {
                         toast.error(response.data.result.message);
                         return;
                     }
+
+                    this.props.history.push('/');
     
                     toast.success(response?.data?.result.message);
                 })
@@ -167,3 +170,5 @@ export default class ResetPassword extends React.Component {
         return classes;
     }
 }
+
+export default withRouter(ResetPassword);
