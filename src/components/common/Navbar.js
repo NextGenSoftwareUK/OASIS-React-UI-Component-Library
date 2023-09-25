@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import logo from "../../assets/images/dummy-logo.svg";
 import loginIcon from "../../assets/images/loggedin.png";
@@ -47,10 +47,9 @@ class Navbar extends React.Component {
         this.props.showConfirm();
     }
 
-    handleLogoClicked = (showLogin) => {
-        // const { history } = this.props;
-        // console.log(this.props)
-        // history.push('/');
+    handleLogoClicked = () => {
+        const { history, showLogin } = this.props;
+        history.push('/');
 
         const jwtToken = localStorage.getItem("jwtToken");
         const refreshToken = localStorage.getItem("refreshToken");
@@ -92,7 +91,7 @@ class Navbar extends React.Component {
                         <div className="nav-menu-btn-burger"></div>
                     </div>
 
-                    <a className="cursor-pointer" onClick={() => this.handleLogoClicked(showLogin)}>
+                    <a className="cursor-pointer" onClick={this.handleLogoClicked}>
                         <img className="nav-logo" src={logo} alt="logo" />
                     </a>
                 </div>
@@ -135,4 +134,4 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

@@ -36,157 +36,157 @@ import SidebarData from "./common/sidebar/SidebarData";
 import Confirmation from "./popups/confirmation/Confirmation.js";
 
 class App extends React.Component {
-  state = {
-    showSidebar: false,
-    showLogin: false,
-    showSignup: false,
-    showConfirm: false,
-    showForgetPassword: false,
-    user: null,
-    loggedIn: false,
-    sidebarMenuOption: [
-      {
-        data: {
-          loadData: false,
-          sendData: false,
-          manageData: false,
-          offChainManagement: false,
-          crossChainManagement: false,
-          searchData: false,
+    state = {
+        showSidebar: false,
+        showLogin: false,
+        showSignup: false,
+        showConfirm: false,
+        showForgetPassword: false,
+        user: null,
+        loggedIn: false,
+        sidebarMenuOption: [
+            {
+                data: {
+                loadData: false,
+                sendData: false,
+                manageData: false,
+                offChainManagement: false,
+                crossChainManagement: false,
+                searchData: false,
+                },
+            },
+            {
+                nft: {
+                solana: false,
+                contactPopup: false,
+                },
+            },
+            {
+                seeds: {
+                    payWithSeeds: false,
+                    donateSeeds: false,
+                    rewardSeeds: false,
+                    sendInvite: false,
+                    viewSeeds: false,
+                    viewOrganizations: false,
+                    manageSeeds: false,
+                    searchSeeds: false,
+                },
+            },
+            {
+                avatar: {
+                    viewAvatar: false,
+                    editAvatar: false,
+                    searchAvatar: false,
+                    avatarWallet: false,
+                },
+            },
+            {
+                karma: {
+                    viewKarmaWeightings: false,
+                    voteKarma: false,
+                    viewAvatarKarma: false,
+                    searchKarma: false
+                },
+            },
+            {
+                game: {
+                    viewLeagues: false,
+                    viewTournaments: false,
+                    viewAchievements: false,
+                    searchProfiles: false
+                },
+            },
+            {
+                eggs: {
+                    viewEggs: false,
+                    manageEggs: false,
+                    searchEggs: false
+                },
+            },
+            {
+                mission: {
+                    viewMission: false,
+                    manageMission: false,
+                    searchMission: false
+                },
+            },
+            {
+                quest: {
+                    viewQuest: false,
+                    manageQuest: false,
+                    searchQuest: false
+                },
+            },
+            {
+                oapp: {
+                    installOAPP: false,
+                    manageOAPP: false,
+                    createOAPP: false,
+                    deployOAPP: false,
+                    editOAPP: false,
+                    launchOAPP: false,
+                    searchOAPP: false,
+                    downloadOurWorld: false,
+                }
+            },
+            {
+                map: {
+                    viewGlobal3dMap: false,
+                    manageMap: false,
+                    addQuestToMap: false,
+                    add2dObjectMap: false,
+                    add3dObjectMap: false,
+                    plotRouteOnMap: false,
+                    viewOappOnMap: false,
+                    viewHalonsOnMap: false,
+                    viewQuestOnMap: false,
+                    searchMap: false,
+                    downloadOurWorld: false,
+                }
+            },
+            {
+                providers: {
+                    viewProviders: false,
+                    manageProviders: false,
+                    manageAutoReplicaton: false,
+                    manageAutoFailOver: false,
+                    manageLoadBalancing: false,
+                    viewProviderStats: false,
+                    compareProviderSpeeds: false,
+                    searchProviders: false,
+                    holochain: false,
+                    seeds: false,
+                    eosio: false,
+                    ethereum: false,
+                    ipfs: false,
+                    threeFold: false,
+                    solid: false,
+                    activityPub: false,
+                    mongoDb: false,
+                    sqlLite: false,
+                    neo4j: false,
+                    solana: false
+                }
+            },
+            {
+                nft: {
+                    manageOasisNft: false,
+                    purchaseOasisNft: false,
+                    purchaseOasisVirtualLandNft: false,
+                    searchOasisNft: false,
+                    viewOasisNft: false
+                },
+            },
+            {
+                comingSoon: false,
+            },
+        ],
+        contact: {
+            contactPopup: false
         },
-      },
-      {
-        nft: {
-          solana: false,
-          contactPopup: false,
-        },
-      },
-      {
-        seeds: {
-            payWithSeeds: false,
-            donateSeeds: false,
-            rewardSeeds: false,
-            sendInvite: false,
-            viewSeeds: false,
-            viewOrganizations: false,
-            manageSeeds: false,
-            searchSeeds: false,
-        },
-      },
-      {
-        avatar: {
-            viewAvatar: false,
-            editAvatar: false,
-            searchAvatar: false,
-            avatarWallet: false,
-        },
-      },
-      {
-        karma: {
-            viewKarmaWeightings: false,
-            voteKarma: false,
-            viewAvatarKarma: false,
-            searchKarma: false
-        },
-      },
-      {
-        game: {
-            viewLeagues: false,
-            viewTournaments: false,
-            viewAchievements: false,
-            searchProfiles: false
-        },
-      },
-      {
-        eggs: {
-            viewEggs: false,
-            manageEggs: false,
-            searchEggs: false
-        },
-      },
-      {
-        mission: {
-            viewMission: false,
-            manageMission: false,
-            searchMission: false
-        },
-      },
-      {
-        quest: {
-            viewQuest: false,
-            manageQuest: false,
-            searchQuest: false
-        },
-      },
-      {
-        oapp: {
-            installOAPP: false,
-            manageOAPP: false,
-            createOAPP: false,
-            deployOAPP: false,
-            editOAPP: false,
-            launchOAPP: false,
-            searchOAPP: false,
-            downloadOurWorld: false,
-        }
-      },
-      {
-        map: {
-            viewGlobal3dMap: false,
-            manageMap: false,
-            addQuestToMap: false,
-            add2dObjectMap: false,
-            add3dObjectMap: false,
-            plotRouteOnMap: false,
-            viewOappOnMap: false,
-            viewHalonsOnMap: false,
-            viewQuestOnMap: false,
-            searchMap: false,
-            downloadOurWorld: false,
-        }
-      },
-      {
-        providers: {
-            viewProviders: false,
-            manageProviders: false,
-            manageAutoReplicaton: false,
-            manageAutoFailOver: false,
-            manageLoadBalancing: false,
-            viewProviderStats: false,
-            compareProviderSpeeds: false,
-            searchProviders: false,
-            holochain: false,
-            seeds: false,
-            eosio: false,
-            ethereum: false,
-            ipfs: false,
-            threeFold: false,
-            solid: false,
-            activityPub: false,
-            mongoDb: false,
-            sqlLite: false,
-            neo4j: false,
-            solana: false
-        }
-      },
-      {
-        nft: {
-            manageOasisNft: false,
-            purchaseOasisNft: false,
-            purchaseOasisVirtualLandNft: false,
-            searchOasisNft: false,
-            viewOasisNft: false
-        },
-      },
-      {
-        comingSoon: false,
-      },
-    ],
-    contact: {
-        contactPopup: false
-    },
-    shortName: ''
-  };
+        shortName: ''
+    };
 
     componentDidMount() {
         const jwtToken = localStorage.getItem("jwtToken"); 
@@ -261,7 +261,6 @@ class App extends React.Component {
     };
 
     showLogin = () => {
-        console.log('going to call login')
         this.setState({
             showLogin: true,
             showSignup: false,
@@ -306,7 +305,6 @@ class App extends React.Component {
     }
 
     handleLogout = () => {
-        console.log('going to call logout')
         const token = localStorage.getItem("jwtToken");
         const refreshToken = localStorage.getItem("refreshToken");
 
@@ -372,7 +370,6 @@ class App extends React.Component {
     };
 
     render() {
-        console.log(window.location.host + '/avatar/verify-email')
         return (
             <HashRouter hashType="slash">
                 <Switch>
@@ -437,11 +434,6 @@ class App extends React.Component {
                         hide={this.toggleScreenPopup}
                     />
 
-                    {/* <ContactPopup
-                        show={this.state.sidebarMenuOption[1].nft.contactPopup}
-                        hide={this.toggleScreenPopup}
-                    /> */}
-
                     <Seeds
                         seeds={this.state.sidebarMenuOption[2].seeds}
                         toggleScreenPopup={this.toggleScreenPopup}
@@ -497,17 +489,6 @@ class App extends React.Component {
                         toggleScreenPopup={this.toggleScreenPopup}
                     />
 
-                    {/* <ComingSoon
-                        show={this.state.sidebarMenuOption[5].comingSoon}
-                        toggleScreenPopup={this.toggleScreenPopup}
-                    /> */}
-
-                    {/* <Confirmation
-                        show={this.state.sidebarMenuOption[14].comingSoon}
-                        toggleScreenPopup={this.toggleScreenPopup}
-                        cancelConfirmation={this.cancelConfirmation}
-                    /> */}
-
                     <ContactPopup
                         show={this.state.contact.contactPopup}
                         showPopup={this.showContactPopup}
@@ -517,7 +498,6 @@ class App extends React.Component {
             </HashRouter>
         );
     }
-
 }
 
 export default App;

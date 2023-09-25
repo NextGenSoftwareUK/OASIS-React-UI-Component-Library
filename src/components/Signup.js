@@ -67,20 +67,19 @@ export default class Signup extends React.Component {
                 toast.info('Please accept terms')
                 return
             }
-            let data = {...this.state.form}
+            let data = {...this.state.form, Username: this.state.form.email}
 
             this.setState({ loading: true })
             
             axios({
                 method: 'post',
                 url: 'https://api.oasisplatform.world/api/avatar/register',
-                data: data, // you are sending body instead
+                data: data,
                 headers: {
                     'Content-Type': 'application/json'
                 }, 
             })
             .then((response) => {
-                console.log(response)
                 this.setState({loading: false})
 
                 if (response.data.result?.isError) {
