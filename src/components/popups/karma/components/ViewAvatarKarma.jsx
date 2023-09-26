@@ -3,6 +3,8 @@ import { Modal } from "react-bootstrap";
 import '../../../../assets/scss/coming-soon.scss';
 import InfoIcon from '../../../../assets/images/icon-info.svg'
 
+import axios from "axios";
+import { toast } from 'react-toastify';
 import { AgGridReact } from 'ag-grid-react';
 
 class ViewAvatarKarma extends React.Component {
@@ -65,6 +67,33 @@ class ViewAvatarKarma extends React.Component {
           .then((resp) => resp.json())
           .then((data) => updateData(data));
     };
+    
+    getApiData = () => {
+        this.setState({ loading: true })
+
+        axios({
+            method: 'get',
+            url: 'https://api.oasisplatform.world/api/',
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+        })
+        .then((response) => {
+            this.setState({loading: false})
+
+            if (response.data.result?.isError) { 
+                toast.error(response.data.result.message);
+                return; 
+            }
+
+            toast.success(response.data.result.message);
+        })
+        .catch((err) => {
+            toast.error('err');
+            this.setState({loading: false})
+            return { error: true, data: err };
+        });
+    }
 
     render() { 
         const { show, hide } = this.props;
