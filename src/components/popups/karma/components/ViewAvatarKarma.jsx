@@ -67,7 +67,7 @@ class ViewAvatarKarma extends React.Component {
           .then((resp) => resp.json())
           .then((data) => updateData(data));
     };
-    
+
     getApiData = () => {
         this.setState({ loading: true })
 
@@ -105,8 +105,7 @@ class ViewAvatarKarma extends React.Component {
                     centered 
                     className="custom-modal custom-popup-component light-custom-popup" 
                     show={show}
-                    dialogClassName=""
-                    onHide={() => hide('seeds', 'viewSeeds')}
+                    onHide={() => hide('karma', 'viewAvatarKarma')}
                 >
                     <Modal.Body>
                         <span className="form-cross-icon" onClick={() => hide('karma', 'viewAvatarKarma')}>
