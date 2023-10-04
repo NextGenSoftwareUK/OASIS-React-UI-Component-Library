@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Modal } from "react-bootstrap";
-
+import axios from "axios";
 import { toast } from "react-toastify";
 
 class OffChainManagement extends React.Component {
@@ -51,6 +51,34 @@ class OffChainManagement extends React.Component {
   saveData = () => {
     toast.success(" Your Data is Saved!");
   };
+
+  getApiData = () => {
+    this.setState({ loading: true })
+
+    axios({
+        method: 'get',
+        url: 'https://api.oasisplatform.world/api/',
+        headers: {
+            'Content-Type': 'application/json'
+        }, 
+    })
+    .then((response) => {
+        this.setState({loading: false})
+
+        if (response.data.result?.isError) { 
+            toast.error(response.data.result.message);
+            return; 
+        }
+
+        toast.success(response.data.result.message);
+    })
+    .catch((err) => {
+        toast.error('err');
+        this.setState({loading: false})
+        return { error: true, data: err };
+    });
+}
+
   render() {
     const { show, hide } = this.props;
 

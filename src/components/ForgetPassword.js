@@ -40,7 +40,6 @@ export default class ForgetPassword extends React.Component {
         auth.forgotPassword(data)
             .then(response => {
                 this.setState({ loading: false })
-                console.log(response)
                 
                 if (response?.data?.result.isError) {
                     toast.error(response.data.result.message);
@@ -51,7 +50,6 @@ export default class ForgetPassword extends React.Component {
                 this.props.hide();
             })
             .catch(error => {
-                console.log(error)
                 toast.error(error.data.result.message);
                 this.setState({ loading: false })
             })

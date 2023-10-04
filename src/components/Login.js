@@ -28,6 +28,10 @@ export default class Login extends React.Component {
         }
     }
 
+    componentDidMount = () => {
+        console.log("component is mounted")
+    }
+
     initialValues = {
         username: '',
         password: ''
@@ -66,8 +70,8 @@ export default class Login extends React.Component {
             }, 
         })
         .then((response) => {
-            console.log(response)
             this.setState({loading: false})
+
             if (response.data.result?.isError) { 
                 toast.error(response.data.result.message);
                 return; 
@@ -83,7 +87,6 @@ export default class Login extends React.Component {
             this.props.hide();
         })
         .catch((err) => {
-            console.log(err)
             toast.error('err');
             this.setState({loading: false})
             return { error: true, data: err };
