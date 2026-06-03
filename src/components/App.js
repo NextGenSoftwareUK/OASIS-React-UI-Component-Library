@@ -312,7 +312,7 @@ class App extends React.Component {
         console.log(token)
         console.log(refreshToken)
         // axios
-        //     .post("https://api.oasisweb4.one/api/avatar/revoke-token", {token: refreshToken}, {
+        //     .post("shared API base URL + /avatar/revoke-token", {token: refreshToken}, {
         //         headers: {
         //             Authorization: `Bearer ${token}`,
         //         }
