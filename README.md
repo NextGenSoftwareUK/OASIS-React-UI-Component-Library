@@ -49,3 +49,15 @@ After this run the following command to open the project in dev mode
 ```
 npm start
 ```
+
+## API Configuration
+
+The app uses a single shared API base URL defined in `src/config/api.js`.
+
+By default it points to `https://api.oasisweb4.one/api`, but you can override it by setting:
+
+```bash
+REACT_APP_API_URL=https://your-api-host/api
+```
+
+This lets you switch environments without changing every request in the codebase.
