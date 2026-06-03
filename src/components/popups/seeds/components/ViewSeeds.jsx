@@ -5,28 +5,28 @@ import { AgGridReact } from 'ag-grid-react';
 import axios from "axios";
 import { toast } from "react-toastify";
 
-var filterParams = {
-    comparator: function (filterLocalDateAtMidnight, cellValue) {
-        var dateAsString = cellValue;
-        if (dateAsString === null) return -1;
-        var dateParts = dateAsString.split('/');
-        var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-        );
-        if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
-            return 0;
-        }
-        if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-        }
-        if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-        }
-    },
-    browserDatePicker: true,
-};
+// var filterParams = {
+//     comparator: function (filterLocalDateAtMidnight, cellValue) {
+//         var dateAsString = cellValue;
+//         if (dateAsString === null) return -1;
+//         var dateParts = dateAsString.split('/');
+//         var cellDate = new Date(
+//             Number(dateParts[2]),
+//             Number(dateParts[1]) - 1,
+//             Number(dateParts[0])
+//         );
+//         if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+//             return 0;
+//         }
+//         if (cellDate < filterLocalDateAtMidnight) {
+//             return -1;
+//         }
+//         if (cellDate > filterLocalDateAtMidnight) {
+//             return 1;
+//         }
+//     },
+//     browserDatePicker: true,
+// };
 
 class ViewSeeds extends React.Component {
 
