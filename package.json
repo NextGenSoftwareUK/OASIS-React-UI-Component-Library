@@ -15,7 +15,6 @@
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",
     "formik": "^2.2.9",
-    "node-sass": "^6.0.1",
     "oasis-api": "^0.0.3",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.3",
@@ -26,7 +25,6 @@
     "react-scripts": "4.0.3",
     "react-slide-toggle": "^0.3.5",
     "react-toastify": "^8.0.3",
-    "sass": "^1.41.0",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.9"
   },
@@ -56,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.100.0"
   }
 }
