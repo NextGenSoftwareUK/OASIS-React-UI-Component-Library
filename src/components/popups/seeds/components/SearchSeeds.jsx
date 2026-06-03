@@ -1,7 +1,6 @@
 import React from 'react';
 import { Modal } from "react-bootstrap";
 import '../../../../assets/scss/coming-soon.scss';
-import InfoIcon from '../../../../assets/images/icon-info.svg'
 import axios from "axios";
 import { toast } from "react-toastify";
 

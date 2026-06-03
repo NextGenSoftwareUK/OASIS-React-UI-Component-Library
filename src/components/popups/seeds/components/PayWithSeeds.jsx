@@ -11,10 +11,8 @@ class PayWithSeeds extends React.Component {
         super()
         this.state = {
             group: '',
-            avatar: '',
             seedUser: '',
             amount: '',
-            note: '',
 
             avatar: {
                 enabled: true,
