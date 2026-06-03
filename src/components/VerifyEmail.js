@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 // import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class VerifyEmail extends Component {
 

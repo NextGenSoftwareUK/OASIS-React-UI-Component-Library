@@ -20,6 +20,7 @@ import DataScreen from "./popups/data-screen";
 import Seeds from "./popups/seeds";
 
 // import { BrowserRouter as Router, HashRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from "react-router-dom";
 
 import VerifyEmail from "./VerifyEmail";
 import Game from "./popups/game";
