@@ -4,6 +4,7 @@ import { Modal } from 'react-bootstrap';
 import ProviderDropdown from '../../../common/ProviderDropdown';
 import axios from "axios";
 import { toast } from 'react-toastify';
+import API_BASE_URL from "../../../../config/api";
 
 class CrossChainManagement extends React.Component {
 
@@ -12,7 +13,7 @@ class CrossChainManagement extends React.Component {
 
         axios({
             method: 'post',
-            url: 'https://api.oasisweb4.one/api/',
+            url: API_BASE_URL,
             headers: {
                 'Content-Type': 'application/json'
             }, 

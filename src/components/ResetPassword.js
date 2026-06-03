@@ -7,6 +7,7 @@ import Loader from 'react-loader-spinner';
 import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
+import API_BASE_URL from "../config/api";
 
 // import { Link, withRouter } from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -60,7 +61,7 @@ class ResetPassword extends React.Component {
             }
             this.setState({ loading: true })
     
-            axios.post('https://api.oasisweb4.one/api/Avatar/reset-password', data)
+            axios.post(`${API_BASE_URL}/Avatar/reset-password`, data)
                 .then(response => {
                     this.setState({loading: false});
 

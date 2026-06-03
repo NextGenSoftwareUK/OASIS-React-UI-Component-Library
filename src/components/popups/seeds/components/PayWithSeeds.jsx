@@ -3,6 +3,7 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 import axios from "axios";
 import { toast } from "react-toastify";
+import API_BASE_URL from "../../../../config/api";
 
 class PayWithSeeds extends React.Component {
 
@@ -40,7 +41,7 @@ class PayWithSeeds extends React.Component {
         };
 
         console.log('going to load all avatars ')
-        axios.get('https://api.oasisweb4.one/api/avatar/get-all-avatars', { headers })
+        axios.get(`${API_BASE_URL}/avatar/get-all-avatars`, { headers })
         .then(response => {
             console.log(response)
             if(response.data.isError) {
@@ -97,7 +98,7 @@ class PayWithSeeds extends React.Component {
 
         axios({
             method: 'post',
-            url: 'https://api.oasisweb4.one/api/',
+            url: API_BASE_URL,
             headers: {
                 'Content-Type': 'application/json'
             }, 

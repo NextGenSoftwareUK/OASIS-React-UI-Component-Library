@@ -3,6 +3,7 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 import axios from "axios";
 import { toast } from "react-toastify";
+import API_BASE_URL from "../../../../config/api";
 
 class SendInvite extends React.Component {
     constructor(){
@@ -47,7 +48,7 @@ class SendInvite extends React.Component {
 
         axios({
             method: 'post',
-            url: 'https://api.oasisweb4.one/api/',
+            url: API_BASE_URL,
             headers: {
                 'Content-Type': 'application/json'
             }, 
