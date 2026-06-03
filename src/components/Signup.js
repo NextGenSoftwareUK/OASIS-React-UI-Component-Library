@@ -11,6 +11,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import "../../src/assets/scss/signup.scss";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import API_BASE_URL from "../config/api";
 
 export default class Signup extends React.Component {
 
@@ -73,7 +74,7 @@ export default class Signup extends React.Component {
             
             axios({
                 method: 'post',
-                url: 'https://api.oasisweb4.one/api/avatar/register',
+                url: `${API_BASE_URL}/avatar/register`,
                 data: data,
                 headers: {
                     'Content-Type': 'application/json'

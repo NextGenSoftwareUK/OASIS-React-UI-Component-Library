@@ -11,6 +11,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import API_BASE_URL from "../config/api";
 
 export default class Login extends React.Component {
 
@@ -63,7 +64,7 @@ export default class Login extends React.Component {
 
         axios({
             method: 'post',
-            url: 'https://api.oasisweb4.one/api/avatar/authenticate/',
+            url: `${API_BASE_URL}/avatar/authenticate/`,
             data: data, // you are sending body instead
             headers: {
                 'Content-Type': 'application/json'

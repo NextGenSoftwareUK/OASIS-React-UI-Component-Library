@@ -9,6 +9,7 @@ import '../../../../assets/scss/avatar-popup.scss';
 import oasisApi from "oasis-api";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import API_BASE_URL from "../../../../config/api";
 
 class ViewAvatar extends React.Component {
     state = {
@@ -88,7 +89,7 @@ class ViewAvatar extends React.Component {
 
         axios({
             method: 'get',
-            url: 'https://api.oasisweb4.one/api/',
+            url: API_BASE_URL,
             headers: {
                 'Content-Type': 'application/json'
             }, 

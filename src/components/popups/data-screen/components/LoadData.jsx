@@ -4,6 +4,7 @@ import { Modal } from 'react-bootstrap';
 import axios from "axios";
 import { toast } from 'react-toastify';
 import { AgGridReact } from 'ag-grid-react';
+import API_BASE_URL from "../../../../config/api";
 
 var filterParams = {
     comparator: function (filterLocalDateAtMidnight, cellValue) {
@@ -97,7 +98,7 @@ class LoadData extends React.Component {
 
         axios({
             method: 'get',
-            url: 'https://api.oasisweb4.one/api/',
+            url: API_BASE_URL,
             headers: {
                 'Content-Type': 'application/json'
             }, 

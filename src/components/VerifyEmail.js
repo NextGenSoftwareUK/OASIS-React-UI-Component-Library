@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import { ToastContainer, toast } from "react-toastify";
 import { toast } from "react-toastify";
+import API_BASE_URL from "../config/api";
 
 // import { Link, withRouter } from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -21,7 +22,7 @@ class VerifyEmail extends Component {
         const searchParams = new URLSearchParams(this.props.location.search);
         const token = searchParams.get('token');
 
-        axios.get(`https://api.oasisweb4.one/api/avatar/verify-email?token=${token}`)
+        axios.get(`${API_BASE_URL}/avatar/verify-email?token=${token}`)
         .then(response => {
             this.setState({loading: false})
 

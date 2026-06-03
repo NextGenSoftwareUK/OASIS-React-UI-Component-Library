@@ -1,9 +1,10 @@
 import axios from "axios";
+import API_BASE_URL from "./config/api";
 
 export const getUserById = (id, token) => {
     var config = {
         method: "get",
-        url: `https://api.oasisweb4.one/api/avatar/GetById/${id}`,
+        url: `${API_BASE_URL}/avatar/GetById/${id}`,
         headers: {
             Authorization: `Bearer ${token.jwt}`,
             Cookie: `refreshToken=${token.refresh}`,
@@ -62,7 +63,7 @@ export const login = (credentials) => {
 
     return axios
         .post(
-            "https://api.oasisweb4.one/api/avatar/authenticate",
+            `${API_BASE_URL}/avatar/authenticate`,
             credentials,
             { headers }
         )

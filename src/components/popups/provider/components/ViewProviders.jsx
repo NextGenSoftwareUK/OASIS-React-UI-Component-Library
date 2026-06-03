@@ -4,6 +4,7 @@ import '../../../../assets/scss/coming-soon.scss';
 import { AgGridReact } from 'ag-grid-react';
 import axios from "axios";
 import { toast } from "react-toastify";
+import API_BASE_URL from "../../../../config/api";
 
 class ViewProviders extends React.Component {
     state = {
@@ -52,7 +53,7 @@ class ViewProviders extends React.Component {
 
         axios({
             method: 'get',
-            url: 'https://api.oasisweb4.one/api/',
+            url: API_BASE_URL,
             headers: {
                 'Content-Type': 'application/json'
             }, 
