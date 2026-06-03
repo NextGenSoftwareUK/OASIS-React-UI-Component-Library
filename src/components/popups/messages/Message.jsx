@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 
 import MessageContacts from "../../common/message/MessageContacts";

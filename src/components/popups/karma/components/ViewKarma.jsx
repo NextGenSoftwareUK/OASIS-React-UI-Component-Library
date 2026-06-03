@@ -1,7 +1,6 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 // import Loader from "react-loader-spinner";
-import { AgGridReact } from 'ag-grid-react';
 import InfoIcon from '../../../../assets/images/icon-info.svg'
 import oasisApi from "oasis-api";
 
