@@ -73,7 +73,7 @@ export default class Signup extends React.Component {
             
             axios({
                 method: 'post',
-                url: 'https://api.oasisplatform.world/api/avatar/register',
+                url: 'https://api.oasisweb4.one/api/avatar/register',
                 data: data,
                 headers: {
                     'Content-Type': 'application/json'

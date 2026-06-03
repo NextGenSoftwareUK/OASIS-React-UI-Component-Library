@@ -63,7 +63,7 @@ export default class Login extends React.Component {
 
         axios({
             method: 'post',
-            url: 'https://api.oasisplatform.world/api/avatar/authenticate/',
+            url: 'https://api.oasisweb4.one/api/avatar/authenticate/',
             data: data, // you are sending body instead
             headers: {
                 'Content-Type': 'application/json'

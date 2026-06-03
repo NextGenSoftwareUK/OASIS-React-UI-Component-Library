@@ -3,7 +3,7 @@ import axios from "axios";
 export const getUserById = (id, token) => {
     var config = {
         method: "get",
-        url: `https://api.oasisplatform.world/api/avatar/GetById/${id}`,
+        url: `https://api.oasisweb4.one/api/avatar/GetById/${id}`,
         headers: {
             Authorization: `Bearer ${token.jwt}`,
             Cookie: `refreshToken=${token.refresh}`,
@@ -62,7 +62,7 @@ export const login = (credentials) => {
 
     return axios
         .post(
-            "https://api.oasisplatform.world/api/avatar/authenticate",
+            "https://api.oasisweb4.one/api/avatar/authenticate",
             credentials,
             { headers }
         )

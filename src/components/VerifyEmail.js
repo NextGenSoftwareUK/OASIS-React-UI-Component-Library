@@ -21,7 +21,7 @@ class VerifyEmail extends Component {
         const searchParams = new URLSearchParams(this.props.location.search);
         const token = searchParams.get('token');
 
-        axios.get(`https://api.oasisplatform.world/api/avatar/verify-email?token=${token}`)
+        axios.get(`https://api.oasisweb4.one/api/avatar/verify-email?token=${token}`)
         .then(response => {
             this.setState({loading: false})
 

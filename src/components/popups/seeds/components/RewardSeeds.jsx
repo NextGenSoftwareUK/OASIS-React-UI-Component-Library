@@ -47,7 +47,7 @@ class RewardSeeds extends React.Component {
 
         axios({
             method: 'post',
-            url: 'https://api.oasisplatform.world/api/',
+            url: 'https://api.oasisweb4.one/api/',
             headers: {
                 'Content-Type': 'application/json'
             }, 

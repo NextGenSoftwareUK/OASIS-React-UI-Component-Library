@@ -555,47 +555,47 @@ const SidebarData = [
         subMenu: [
             {
                 name: "OASIS API LIVE",
-                path: "https://api.oasisplatform.world/",
+                path: "https://api.oasisweb4.one/",
                 externalLink: true
             },
             {
                 name: "OASIS API STAGING",
-                path: "https://staging.api.oasisplatform.world/",
+                path: "https://staging.api.oasisweb4.one/",
                 externalLink: true
             },
             {
                 name: "OASIS API UI LIVE",
-                path: "https://staging.api.oasisplatform.world/",
+                path: "https://staging.api.oasisweb4.one/",
                 externalLink: true
             },
             {
                 name: "OASIS API UI STAGING",
-                path: "https://staging.api.oasisplatform.world/",
+                path: "https://staging.api.oasisweb4.one/",
                 externalLink: true
             },
             {
                 name: "STAR ODK",
-                path: "https://oasisplatform.world/?#",
+                path: "https://oasisweb4.one/?#",
                 externalLink: true
             },
             {
                 name: "OASIS API Postman JSON File",
-                path: "https://oasisplatform.world/postman/OASIS_API.postman_collection.json",
+                path: "https://oasisweb4.one/postman/OASIS_API.postman_collection.json",
                 externalLink: true
             },
             {
                 name: "OASIS API DEV ENVIROMENT POSTMAN JSON FILE",
-                path: "https://oasisplatform.world/postman/OASIS_API_DEV.postman_environment.json",
+                path: "https://oasisweb4.one/postman/OASIS_API_DEV.postman_environment.json",
                 externalLink: true
             },
             {
                 name: "OASIS API STAGING ENVIROMENT POSTMAN JSON FILE",
-                path: "https://oasisplatform.world/postman/OASIS_API_STAGING.postman_environment.json",
+                path: "https://oasisweb4.one/postman/OASIS_API_STAGING.postman_environment.json",
                 externalLink: true
             },
             {
                 name: "OASIS API LIVE ENVIROMENT POSTMAN JSON FILE",
-                path: "https://oasisplatform.world/postman/OASIS_API_LIVE.postman_environment.json",
+                path: "https://oasisweb4.one/postman/OASIS_API_LIVE.postman_environment.json",
                 externalLink: true
             },
             {
