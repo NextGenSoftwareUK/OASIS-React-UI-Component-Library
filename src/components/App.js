@@ -12,14 +12,14 @@ import Karma from "./popups/karma";
 import "../assets/scss/general.scss";
 import "../assets/scss/style.scss";
 
-import axios from "axios";
+// import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Avatar from "./popups/avatar";
 import DataScreen from "./popups/data-screen";
 import Seeds from "./popups/seeds";
 
-import { BrowserRouter as Router, HashRouter, Switch, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, HashRouter, Switch, Route } from 'react-router-dom';
 
 import VerifyEmail from "./VerifyEmail";
 import Game from "./popups/game";
@@ -30,7 +30,7 @@ import OAPP from "./popups/oapp";
 import Map from "./popups/map";
 import Provider from "./popups/provider";
 import Nft from "./popups/nft";
-import ForgotPassword from "./pages/forgotPassword";
+// import ForgotPassword from "./pages/forgotPassword";
 import ResetPassword from "./ResetPassword";
 import SidebarData from "./common/sidebar/SidebarData";
 import Confirmation from "./popups/confirmation/Confirmation.js";

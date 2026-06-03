@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import logo from "../../assets/images/dummy-logo.svg";
-import loginIcon from "../../assets/images/loggedin.png";
+// import loginIcon from "../../assets/images/loggedin.png";
 
 class Navbar extends React.Component {
 
@@ -75,7 +75,7 @@ class Navbar extends React.Component {
     }
 
     render() {
-        const { user, loggedIn, showLogin, showSignup, handleLogout, showSidebar, toggleSidebar, showContactPopup } = this.props;
+        const { user, loggedIn, showLogin, showSignup, showSidebar, toggleSidebar, showContactPopup } = this.props;
 
         const shortName = (this.state.shortName) ? this.state.shortName : this.props.shortName;
         
