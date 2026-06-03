@@ -40,7 +40,7 @@ class PayWithSeeds extends React.Component {
         };
 
         console.log('going to load all avatars ')
-        axios.get('https://api.oasisplatform.world/api/avatar/get-all-avatars', { headers })
+        axios.get('https://api.oasisweb4.one/api/avatar/get-all-avatars', { headers })
         .then(response => {
             console.log(response)
             if(response.data.isError) {
@@ -97,7 +97,7 @@ class PayWithSeeds extends React.Component {
 
         axios({
             method: 'post',
-            url: 'https://api.oasisplatform.world/api/',
+            url: 'https://api.oasisweb4.one/api/',
             headers: {
                 'Content-Type': 'application/json'
             }, 

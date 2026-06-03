@@ -75,7 +75,7 @@ class ViewOrganizations extends React.Component {
             'Content-Type': 'application/json'
         };
 
-        axios.get('https://api.oasisplatform.world/api/seeds/get-all-organisations', { headers })
+        axios.get('https://api.oasisweb4.one/api/seeds/get-all-organisations', { headers })
         .then(response => {
             console.log(response)
             // if(response.data.isError) {
@@ -96,7 +96,7 @@ class ViewOrganizations extends React.Component {
 
         axios({
             method: 'get',
-            url: 'https://api.oasisplatform.world/api/',
+            url: 'https://api.oasisweb4.one/api/',
             headers: {
                 'Content-Type': 'application/json'
             }, 

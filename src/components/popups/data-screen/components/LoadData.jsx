@@ -97,7 +97,7 @@ class LoadData extends React.Component {
 
         axios({
             method: 'get',
-            url: 'https://api.oasisplatform.world/api/',
+            url: 'https://api.oasisweb4.one/api/',
             headers: {
                 'Content-Type': 'application/json'
             }, 

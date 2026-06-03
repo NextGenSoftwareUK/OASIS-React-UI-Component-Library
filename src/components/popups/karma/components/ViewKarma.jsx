@@ -60,7 +60,7 @@ class ViewKarma extends React.Component {
                     type: karma.karmaTypePositive.name,
                     source: karma.karmaSource.name,
                     description: karma.karmaSourceDesc,
-                    weblink: 'oasisplatform.world',
+                    weblink: 'oasisweb4.one',
                     karma: karma.karma
                   }
                   karmaRecords.push(karmaRecord)

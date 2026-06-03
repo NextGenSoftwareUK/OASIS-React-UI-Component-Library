@@ -60,7 +60,7 @@ class ResetPassword extends React.Component {
             }
             this.setState({ loading: true })
     
-            axios.post('https://api.oasisplatform.world/api/Avatar/reset-password', data)
+            axios.post('https://api.oasisweb4.one/api/Avatar/reset-password', data)
                 .then(response => {
                     this.setState({loading: false});
 
