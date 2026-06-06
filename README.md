@@ -4,6 +4,12 @@ This is the WEB4 OASIS React UI Components Library that can be used to pick n mi
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Documentation
+
+- [React Style Guide](Docs/react_style_guide.md) - Coding standards and CSS naming conventions for contributing components
+- [React Install Guide](Docs/react_style_guide_install.md) - Step-by-step installation and setup instructions
+- [Contributing Guide](Docs/smart_commits.md) - How to contribute using smart commits
+
 ## Project Structure
 ```
 ├── react-app 
