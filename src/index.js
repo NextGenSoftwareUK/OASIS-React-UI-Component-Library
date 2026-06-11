@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 import App from "./components/App";
 
@@ -11,4 +11,4 @@ import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 import 'react-toastify/dist/ReactToastify.css';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+createRoot(document.getElementById("root")).render(<App />);
