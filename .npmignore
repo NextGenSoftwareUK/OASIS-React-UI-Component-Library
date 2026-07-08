@@ -1,0 +1,9 @@
+﻿node_modules/
+dist/
+public/
+src/App.*
+src/index.*
+src/pages/
+src/routes/
+*.log
+.DS_Store
