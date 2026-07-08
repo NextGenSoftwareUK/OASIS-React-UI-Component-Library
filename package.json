@@ -1,7 +1,21 @@
 {
-  "name": "react-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@oasisomniverse/react",
+  "version": "1.0.0",
+  "description": "OASIS Omniverse React UI components",
+  "keywords": ["oasis", "omniverse", "react", "components"],
+  "author": "NextGenSoftware",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NextGenSoftwareUK/OASIS-React-UI-Component-Library.git"
+  },
+  "main": "src/components/index.js",
+  "module": "src/components/index.js",
+  "exports": {
+    ".": "./src/components/index.js",
+    "./components/*": "./src/components/*.jsx"
+  },
+  "files": ["src/components"],
   "dependencies": {
     "@devexpress/dx-react-core": "^2.7.6",
     "@material-ui/core": "^4.12.3",
