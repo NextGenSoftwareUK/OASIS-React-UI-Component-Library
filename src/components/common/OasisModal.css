@@ -1,0 +1,9 @@
+.oasis-modal-backdrop{position:fixed;inset:0;background:rgba(3,7,20,.75);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;z-index:9999;animation:oasisFadeIn .25s ease}
+.oasis-modal-box{background:#0d1829;border:1px solid rgba(0,200,255,.18);border-radius:16px;padding:28px;width:min(520px,92vw);max-height:88vh;overflow-y:auto;animation:oasisSlideUp .25s ease}
+.oasis-modal-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid;margin-bottom:20px}
+.oasis-modal-title{font-family:'Orbitron',sans-serif;font-size:15px;font-weight:700;letter-spacing:.06em}
+.oasis-modal-close{background:none;border:none;color:#7a9bbf;font-size:18px;cursor:pointer;padding:0;line-height:1}
+.oasis-modal-close:hover{color:#fff}
+.oasis-modal-body{color:#a8bfd8;font-size:14px;line-height:1.6}
+@keyframes oasisFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes oasisSlideUp{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
