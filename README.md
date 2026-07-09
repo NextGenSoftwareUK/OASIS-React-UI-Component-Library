@@ -1,69 +1,84 @@
-# WEB4 OASIS API React Component Library
+# @oasisomniverse/react — OASIS React UI Component Library
 
-This is the WEB4 OASIS React UI Components Library that can be used to pick n mix into other React sites who wish to integrate into the WEB4 OASIS API. It is also the main OASIS Portal site and example site of how to build a UI on the WEB4 OASIS API.
+The React UI component library for the [OASIS Platform](https://oasisomniverse.one). 126 components covering avatar SSO, karma, NFTs, quests, map, seeds, messaging, OApps, providers and more — ready to drop into any React or Next.js project.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![npm](https://img.shields.io/npm/v/@oasisomniverse/react)](https://www.npmjs.com/package/@oasisomniverse/react)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://react.oportal.oasisomniverse.one)
 
-## Documentation
-
-- [React Style Guide](Docs/react_style_guide.md) - Coding standards and CSS naming conventions for contributing components
-- [React Install Guide](Docs/react_style_guide_install.md) - Step-by-step installation and setup instructions
-- [Contributing Guide](Docs/smart_commits.md) - How to contribute using smart commits
-
-## Project Structure
-```
-├── react-app 
-│   ├── public
-│   │   └── index.html
-│   ├── src
-|   |   ├── assets
-|   |   |   ├── images
-|   |   |   ├── scss
-|   |   ├── components 
-|   |   |   ├── common
-|   |   |   |   ├── sidebar
-|   |   |   ├── popups
-│   │   └── index.js
-```
-
-All of the files are stored in react-app folder.
-
-- `index.html` is the main html file
-- `assets` folder contains all assets files for each component like images and css/scss files.
-- `components` folder contains different components used in the app.
-- `components/common` folder contains different components tha are common like sidebar, navbar etc.
-- `components/popups` folder contains different popup components.
-- `index.js` is the main javaScript file needed for the react-app.
-
-## CSS Syntax rules
-Please follow these rules so that the other CSS classes does not gets messed up.
-
-For example if you create a component called `Login.js` It's outer most tag element should have a class of `login` and the child elements of login should have a class name started with `login-`
-
-The CSS file should be named `Login.css` and should be stored under the `CSS` folder.
-
-## How to run the app
-
-First make sure you are in the react-app folder. Then run this command
-
-```
-npm i
-```
-This will install all the third-part components used in the project
-
-After this run the following command to open the project in dev mode
-```
-npm start
-```
-
-## API Configuration
-
-The app uses a single shared API base URL defined in `src/config/api.js`.
-
-By default it points to `https://api.oasisweb4.one/api`, but you can override it by setting:
+## Install
 
 ```bash
-REACT_APP_API_URL=https://your-api-host/api
+npm install @oasisomniverse/react
 ```
 
-This lets you switch environments without changing every request in the codebase.
+## Basic Usage
+
+```jsx
+import { Login, AvatarConnect, KarmaToast } from '@oasisomniverse/react';
+
+const App = () => (
+  <div>
+    <Login apiUrl="https://api.web4.oasisomniverse.one" onSuccess={(avatar) => console.log(avatar)} />
+    <AvatarConnect />
+    <KarmaToast message="+10 karma earned" value={10} />
+  </div>
+);
+
+export default App;
+```
+
+## Component List
+
+All 126 components are grouped below. Every component is also available in vanilla JS, Angular, Vue, Svelte and Next.js at full parity — see the [OASIS Web Component Library](https://oportal.oasisomniverse.one) for the full matrix.
+
+| Group | Components |
+|---|---|
+| **Auth & Identity** | AcceptInvite, AvatarConnect, ForgotPassword, Login, ResetPassword, SearchAvatar, SearchAvatars, SendInvite, Signup, VerifyEmail |
+| **Avatar** | AvatarProfile, AvatarWallet, EditAvatar, SearchProfiles, ViewAchievements, ViewAvatar, ViewAvatarKarma, ViewLeagues, ViewOrganizations, ViewTournaments |
+| **Data Screen** | ActivityPub, AddData, EOSIO, Ethereum, Holochain, IPFS, LoadData, ManageData, MongoDB, Neo4j, OffChainManagement, SearchData, Solana, Solid, SQLite, ThreeFold |
+| **Eggs** | Eggs, ManageEggs, SearchEggs, ViewEggs |
+| **Game** | Game |
+| **Karma** | KarmaPanel, KarmaToast, SearchKarma, ViewKarma, VoteKarma |
+| **Map** | Add2DObjectToMap, Add3DObjectToMap, AddQuestToMap, DownloadMap, ManageMap, Map, PlotRouteOnMap, SearchMap, ViewGlobal3DMap, ViewHalonsOnMap, ViewOAppOnMap, ViewQuestOnMap |
+| **Messages** | MenuMessage, Message, MessageContacts, Messaging |
+| **Mission** | ManageMission, Mission, SearchMission, ViewMission |
+| **NFT** | ContactPopupNFT, ManageNFT, NFT, PurchaseNFT, PurchaseVirtualLandNFT, SearchNFT, ViewNFT |
+| **OApp** | CreateOApp, DeployOApp, DownloadOApp, EditOApp, InstallOApp, LaunchOApp, ManageOApp, OApp, SearchOApp |
+| **Providers** | CompareProviderSpeeds, CrossChainManagement, ManageAutoFailover, ManageAutoReplication, ManageLoadBalancing, ManageProviders, ProviderDropdown, Providers, SearchProviders, SeedsProvider, ViewProviderStats, ViewProviders |
+| **Quest** | ManageQuest, Quest, SearchQuest, ViewQuest |
+| **Seeds** | DonateSeeds, ManageSeeds, PayWithSeeds, RewardSeeds, SearchSeeds, Seeds, ViewSeeds |
+| **Common UI** | ComingSoon, Confirmation, Contact, HyperDrive, NavBar, ONET, ONODE, OasisModal, Settings, SideNav, StarField, Wallet |
+
+## Dark Space Design System
+
+The OASIS component library ships with the **Dark Space** design system — a deep-space aesthetic built for the OASIS Omniverse:
+
+- **Background**: near-black (#0a0d14) with subtle nebula gradients
+- **Primary accent**: electric cyan (#00c8ff)
+- **Typography**: [Orbitron](https://fonts.google.com/specimen/Orbitron) for headings, [Rajdhani](https://fonts.google.com/specimen/Rajdhani) for body text
+- **Text**: always bright (#e0f0ff / #fff) — never dim or faded
+- **Borders**: translucent cyan (`rgba(0,200,255,0.2)`)
+- **Cards**: glassy dark panels with backdrop-filter blur
+
+Override the CSS custom properties to theme components for your own OAPP:
+
+```css
+:root {
+  --oasis-bg: #0a0d14;
+  --oasis-accent: #00c8ff;
+  --oasis-text: #e0f0ff;
+  --oasis-border: rgba(0, 200, 255, 0.2);
+}
+```
+
+## Live Demo
+
+**[react.oportal.oasisomniverse.one](https://react.oportal.oasisomniverse.one)** — the React OPORTAL running all 126 components live.
+
+## Links
+
+- [GitHub](https://github.com/NextGenSoftwareUK/OASIS-React-UI-Component-Library)
+- [npm](https://www.npmjs.com/package/@oasisomniverse/react)
+- [OASIS API Docs](https://oasis-web4.gitbook.io/oasis-web4-docs/)
+- [Developer Portal](https://oportal.oasisomniverse.one)
+- [OASIS Platform](https://oasisomniverse.one)
