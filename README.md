@@ -202,16 +202,26 @@ Karma breakdown panel.
 
 #### `<KarmaToast />`
 
-Floating karma notification — renders a self-dismissing toast.
+Singleton toast — render it once near the root of your app, then trigger it imperatively via `showKarmaToast()`.
 
 ```jsx
-<KarmaToast message="Quest completed" amount={150} />
+import { KarmaToast, showKarmaToast } from '@oasisomniverse/react';
+
+// In your root/layout component:
+<KarmaToast />
+
+// Anywhere in your app:
+showKarmaToast({ message: 'Quest completed', amount: 150 });
+showKarmaToast({ message: 'Penalty applied', amount: -20, duration: 5000 });
 ```
 
-| Prop | Type | Description |
-|---|---|---|
-| `message` | `string` | Reason text shown below the karma amount |
-| `amount` | `number` | Karma delta — positive shown in cyan, negative in red |
+`showKarmaToast` options:
+
+| Option | Type | Default | Description |
+|---|---|---|---|
+| `message` | `string` | **required** | Reason text shown below the karma amount |
+| `amount` | `number` | **required** | Karma delta — positive shown in cyan, negative in red |
+| `duration` | `number` | `4000` | Auto-dismiss delay in milliseconds |
 
 ---
 
@@ -301,19 +311,27 @@ Seeds payment flow.
 
 #### `<OasisModal />`
 
-Reusable modal wrapper.
+Reusable modal wrapper — controlled via the `open` boolean.
 
 ```jsx
-<OasisModal title="My Modal" accentColor="#00c8ff" onClose={() => {}}>
+const [show, setShow] = useState(false);
+
+<OasisModal
+  open={show}
+  title="My Modal"
+  accentColor="#00c8ff"
+  onClose={() => setShow(false)}
+>
   <p>Modal content goes here.</p>
 </OasisModal>
 ```
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
+| `open` | `boolean` | **required** | Controls whether the modal is visible |
 | `title` | `string` | `''` | Modal header title |
 | `accentColor` | `string` | `'#00c8ff'` | Header accent colour |
-| `onClose` | `() => void` | — | Called when dismissed |
+| `onClose` | `() => void` | — | Called when dismissed (Escape key or backdrop click) |
 | `children` | `ReactNode` | — | Modal body content |
 
 ---
