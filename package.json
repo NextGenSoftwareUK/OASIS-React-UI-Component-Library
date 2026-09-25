@@ -29,6 +29,7 @@
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",
     "formik": "^2.2.9",
+    "@oasisomniverse/web4-api": "^2.0.13",
     "oasis-api": "^0.0.3",
     "react": "^19.2.7",
     "react-bootstrap": "^1.6.3",
