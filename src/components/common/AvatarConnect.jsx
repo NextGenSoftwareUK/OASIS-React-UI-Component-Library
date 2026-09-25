@@ -25,7 +25,7 @@ export default function AvatarConnect({ onLogin, onLogout, sessionKey = SESSION_
       const oasis = new OASISClient({ baseUrl: apiUrl });
       const result = await oasis.auth.login({ username, password });
       const karma = await oasis.karma.getKarmaForAvatar({ avatarId: result.avatarId });
-      const sess = { avatarId: result.avatarId, username, karma: karma.total ?? 0 };
+      const sess = { avatarId: result.session?.avatarId, username, jwtToken: result.session?.jwtToken, karma: karma?.result?.karmaScore ?? 0 };
       sessionStorage.setItem(sessionKey, JSON.stringify(sess));
       setSession(sess); setOpen(false);
       onLogin?.(sess);

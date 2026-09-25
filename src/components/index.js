@@ -1,6 +1,9 @@
 // @oasisomniverse/react — OASIS Omniverse React components
 
+export { AvatarBiometric }  from './common/AvatarBiometric';
 export { AvatarConnect }    from './common/AvatarConnect';
+export { HerzIdPanel }      from './common/HerzIdPanel';
+export { HerzVouchChain }   from './common/HerzVouchChain';
 export { Contact }          from './common/Contact';
 export { Eggs }             from './common/Eggs';
 export { Game }             from './common/Game';
